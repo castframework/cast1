@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "src"
+  ],
+  "ext": "ts",
+  "ignore": [
+    "tests/**/*.spec.ts"
+  ],
+  "exec": "node --inspect=9229 -r ts-node/register src/main.ts $FORGE_ORACLE_PARAMETERS"
+}

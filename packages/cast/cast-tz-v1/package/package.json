@@ -1,0 +1,25 @@
+{
+  "name": "@forgecapitalmarkets/smartpy-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "smartml-cli.js",
+  "scripts": {
+    "preinstall": "python3 --version",
+    "test": "echo 'nothing to do'",
+    "build": "echo 'nothing to do'"
+  },
+  "bin": {
+    "smp": "./SmartPy.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bs58check": "^2.1.2",
+    "chalk": "^4.1.2",
+    "libsodium-wrappers-sumo": "^0.7.8"
+  },
+  "publishConfig": {
+    "@forgecapitalmarkets:registry": "https://gitlab.com/api/v4/projects/8930457/packages/npm/"
+  }
+}

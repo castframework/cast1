@@ -1,0 +1,27 @@
+{
+  "initiateTradeInput": {
+    "settlementModel": "INDIRECT",
+    "intermediateAccountIBAN": "FR7630003011300300000000000",
+    "holdableTokenAddress": null,
+    "settlementDate": "2022-04-04T08:44:32.785Z",
+    "operationId": "974a2dcc-a241-447f-8ea2-82b00cf818bb",
+    "instrumentAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+    "instrumentLedger": "ETHEREUM",
+    "additionalReaderAddresses": [],
+    "tradeId": "45e18171-b487-4a0e-9487-c3a7bc082c8d",
+    "tradeDate": "2022-03-04T09:44:32.785",
+    "buyerAddresses": {
+      "deliveryAccountNumber": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+      "legalEntityId": "LEI_INVESTOR_1",
+      "paymentAccountNumber": "FR7630003011300500000000000"
+    },
+    "sellerAddresses": {
+      "deliveryAccountNumber": "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+      "legalEntityId": "LEI_ISSUER_1",
+      "paymentAccountNumber": "FR7630003011300400000000000"
+    },
+    "deliveryQuantity": 1,
+    "paymentAmount": 980000,
+    "paymentCurrency": "EUR"
+  }
+}

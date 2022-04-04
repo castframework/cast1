@@ -1,0 +1,12 @@
+query GetAllInstrumentsQuery($ledger: Ledger!) {
+  getAllInstruments(ledger: $ledger)
+}
+
+#{
+#  "data": {
+#    "getAllInstruments": [
+#      "0x7811126D6F73daa25832828af88702EB529fe820",
+#      "0x69DA398f9D7c2EA378dB2603B70A1be92B4351CF"
+#    ]
+#  }
+#}

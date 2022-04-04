@@ -1,0 +1,9 @@
+query WhoAmI($ledger: Ledger!){
+    whoami(ledger: $ledger)
+}
+
+#{
+#  "data": {
+#    "whoami": "0x58f3988e32cb39aac0b47b3c5384371335341195"
+#  }
+#}

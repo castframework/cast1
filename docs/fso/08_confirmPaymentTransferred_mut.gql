@@ -1,0 +1,19 @@
+mutation ConfirmPaymentTransferred {
+  confirmPaymentTransferred(paymentReference: "787e6d73fd4c7804")
+}
+
+# Success
+#{
+#  "data": {
+#    "confirmPaymentTransferred": [
+#      "0x0e81e3beeb675a5e0b059756f8854af34955a2cb604bfe40ec0433acc1afdcf1"
+#    ]
+#  }
+#}
+#{
+#  "data": {
+#    "confirmPaymentTransferred": [
+#      "op2mEAwjYy3RTEjqXiokFvv64s8H4GdCvK8WP93dyCMEE946tHq"
+#    ]
+#  }
+#}

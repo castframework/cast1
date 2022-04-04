@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noLib": false,
+    "outDir": "./dist",
+    "plugins": [
+      {
+        "name": "ts-graphql-plugin",
+        "schema": "./schema/fro.graphql",
+        "tag": "gql"
+      }
+    ],
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es6",
+    "lib": [
+      "es2019",
+      "ESNext.AsyncIterable"
+    ],
+    "types": [
+      "node",
+      "mocha"
+    ],
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules",
+    "tests",
+    "dist"
+  ],
+  "include": [
+    "src",
+  ],
+  "references": [
+    {
+      "path": "../../cast/models",
+    },
+    {
+      "path": "../../cast/oracle-clients",
+    },
+    {
+      "path": "../../cast/cast-interface-v1",
+    },
+    {
+      "path": "../../cast/chain-auth",
+    }
+  ]
+}

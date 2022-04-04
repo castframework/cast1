@@ -1,0 +1,21 @@
+mutation InitiateSubscription(
+  $initiateSubscriptionInput: InitiateSubscriptionInput!
+) {
+  initiateSubscription(
+    initiateSubscriptionInput: $initiateSubscriptionInput
+  )
+}
+
+# Success ETHEREUM
+#{
+#  "data": {
+#    "initiateSubscription": "0x0cf15888df6d62b74d0e252eee8f3ebf05e8c7ae615f356e5a609229b88a7ae6"
+#  }
+#}
+
+# Success TEZOS
+#{
+#  "data": {
+#    "initiateSubscription": "ooQeHVAvHM5QgCsMAStUVYnQ5Bu3ZaNViKovP9vqt37ppdaZEmC"
+#  }
+#}

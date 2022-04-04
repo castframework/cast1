@@ -1,0 +1,19 @@
+subscription {
+  registryNotification {
+		notificationName
+    instrumentAddress
+    instrumentLedger
+    transactionHash
+  }
+}
+
+k#{
+#  "data": {
+#    "registryNotification": {
+#      "notificationName": "InstrumentListed",
+#      "instrumentAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+#      "instrumentLedger": "ETHEREUM",
+#      "transactionHash": "0x3f8696e3232832c11402b4bf7301db749637ae59abc8e9c36689b3fc29c90ec4"
+#    }
+#  }
+#}

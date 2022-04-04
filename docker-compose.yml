@@ -1,0 +1,123 @@
+version: '3.7'
+volumes:
+  ganache_data:
+    driver: local
+  flextesa_data:
+    driver: local
+services:
+  postgres-str:
+    container_name: postgres-str
+    image: 'postgres:11'
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=oracle
+    ports:
+      - '5434:5432'
+    volumes:
+      - './charts/forge-platform/init-data/defaults/default-str-postgres-init.sql:/docker-entrypoint-initdb.d/init.sql'
+  fro:
+    container_name: fro
+    image: 'node:16.9.1-alpine3.14'
+    working_dir: /home/node/packages/cast/oracles
+    command: npm run start
+    env_file:
+      - ./packages/cast/oracles/env/dc.fro.env
+    environment:
+      - TZ_BLOCKCHAIN_PROVIDE_LOCATION=http://flextesa:20000
+      - ETH_BLOCKCHAIN_PROVIDE_LOCATION=ws://ganache:8545
+    ports:
+      - '6661:6660'
+    volumes:
+      - './networks:/networks'
+      - './packages:/home/node/packages/'
+      - './node_modules:/home/node/node_modules'
+  fio1:
+    container_name: fio1
+    image: 'node:16.9.1-alpine3.14'
+    working_dir: /home/node/packages/cast/oracles
+    command: npm run start
+    env_file:
+      - ./packages/cast/oracles/env/dc.fio.env
+    environment:
+      - TZ_BLOCKCHAIN_PROVIDE_LOCATION=http://flextesa:20000
+      - ETH_BLOCKCHAIN_PROVIDE_LOCATION=ws://ganache:8545
+    ports:
+      - '6664:6660'
+    volumes:
+      - './networks:/networks'
+      - './packages:/home/node/packages/'
+      - './node_modules:/home/node/node_modules'
+  fso:
+    container_name: fso
+    image: 'node:16.9.1-alpine3.14'
+    working_dir: /home/node/packages/cast/oracles
+    command: npm run start
+    env_file:
+      - ./packages/cast/oracles/env/dc.fso.env
+    environment:
+      - TZ_BLOCKCHAIN_PROVIDE_LOCATION=http://flextesa:20000
+      - ETH_BLOCKCHAIN_PROVIDE_LOCATION=ws://ganache:8545
+    ports:
+      - '6663:6660'
+    volumes:
+      - './networks:/networks'
+      - './packages:/home/node/packages/'
+      - './node_modules:/home/node/node_modules'
+  str:
+    container_name: str
+    image: 'node:16.9.1-alpine3.14'
+    working_dir: /home/node/packages/cast/oracles
+    command: npm run start
+    env_file:
+      - ./packages/cast/oracles/env/dc.str.env
+    environment:
+      - TZ_BLOCKCHAIN_PROVIDE_LOCATION=http://flextesa:20000
+      - ETH_BLOCKCHAIN_PROVIDE_LOCATION=ws://ganache:8545
+    ports:
+      - '6662:6660'
+    volumes:
+      - './networks:/networks'
+      - './packages:/home/node/packages/'
+      - './node_modules:/home/node/node_modules'
+  ganache:
+    container_name: ganache
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "8545:8545"
+    volumes:
+      - 'ganache_data:/ganache_data'
+    entrypoint:
+      - node
+      - /app/ganache-core.docker.cli.js
+      - --deterministic
+      - --db=/ganache_data
+      - --account="${GANACHE_PRIV},10000000000000000000000000"
+      - --networkId
+      - '5777'
+      - --hostname
+      - '0.0.0.0'
+      - --debug
+  flextesa:
+    container_name: flextesa
+    image: oxheadalpha/flextesa:20220321
+    ports:
+      - "20000:20000"
+    volumes:
+      - 'flextesa_data:/tmp'
+    command: hangzbox start --keep-root --add-bootstrap-account "${TZ_KEY}@2_000_000_000_000" --no-daemons-for=forge
+    environment:
+      - block_time=3
+  mkdocs:
+    container_name: mkdocs
+    image: polinux/mkdocs:1.1.2
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      LIVE_RELOAD_SUPPORT: 'true'
+      UPDATE_INTERVAL: 15
+      AUTO_UPDATE: 'true'
+    volumes:
+      - ./mkdocs:/mkdocs/

@@ -1,0 +1,17 @@
+query GetInstrumentPositions($ledger: Ledger!, $instrumentAddress: String!) {
+    getInstrumentPositions(
+      ledger: $ledger
+      instrumentAddress: $instrumentAddress
+    ) {
+      instrumentAddress
+      ledger
+      balance
+      legalEntityAddress
+      symbol
+      valueInFiat
+      currency
+      percentage
+      unlocked
+      locked
+    }
+  }

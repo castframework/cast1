@@ -1,0 +1,8 @@
+{
+    "root": "packages/cast/oracle-clients",
+    "sourceRoot": "packages/cast/oracle-clients/src",
+    "projectType": "library",
+    "targets": {
+    },
+    "tags": []
+}

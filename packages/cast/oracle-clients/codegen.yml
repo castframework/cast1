@@ -1,0 +1,92 @@
+overwrite: true
+generates:
+  src/modules/strClient/generated/graphql.ts:
+    schema: "../oracles/schema/str.graphql"
+    documents: "src/shared/graphQL/str/*.graphql"
+    config:
+      namingConvention: keep
+      skipTypename: true
+      dedupeOperationSuffix: true
+      scalars:
+        DateTime: Date
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-document-nodes"
+  src/modules/strClient/generated/schema.json:
+    schema: "../oracles/schema/str.graphql"
+    documents: "src/shared/graphQL/str/*.graphql"
+    plugins:
+      - introspection
+    config:
+      minify: true
+  src/modules/froClient/generated/graphql.ts:
+    schema: "../oracles/schema/fro.graphql"
+    documents: 
+      - "src/shared/graphQL/fro/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    config:
+      namingConvention: keep
+      skipTypename: true
+      scalars:
+        DateTime: Date
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-document-nodes"
+  src/modules/froClient/generated/schema.json:
+    schema: "../oracles/schema/fro.graphql"
+    documents: 
+      - "src/shared/graphQL/fro/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    plugins:
+      - introspection
+    config:
+      minify: true
+  src/modules/fioClient/generated/graphql.ts:
+    schema: "../oracles/schema/fio.graphql"
+    documents: 
+      - "src/shared/graphQL/fio/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    config:
+      namingConvention: keep
+      dedupeOperationSuffix: true
+      skipTypename: true
+      scalars:
+        DateTime: Date
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-document-nodes"
+  src/modules/fioClient/generated/schema.json:
+    schema: "../oracles/schema/fio.graphql"
+    documents: 
+      - "src/shared/graphQL/fio/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    plugins:
+      - introspection
+    config:
+      minify: true
+  src/modules/fsoClient/generated/graphql.ts:
+    schema: "../oracles/schema/fso.graphql"
+    documents: 
+      - "src/shared/graphQL/fso/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    config:
+      namingConvention: keep
+      skipTypename: true
+      scalars:
+        DateTime: Date
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-document-nodes"
+  src/modules/fsoClient/generated/schema.json:
+    schema: "../oracles/schema/fso.graphql"
+    documents: 
+      - "src/shared/graphQL/fso/*.graphql"
+      - "src/shared/graphQL/fxo/*.graphql"
+    plugins:
+      - introspection
+    config:
+      minify: true

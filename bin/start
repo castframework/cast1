@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+PRJT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P | grep -o '^.*/' )"
+
+
+echo "🛠 Generate Key-Set Address"
+
+if npx @castframework/keyset-maker networks/local && cp networks/local/env $PRJT_ROOT/.env
+then
+    echo "✅ Generate Key-Set Address Generated"
+else
+    echo "💥 Error generating Generate Key-Set Address"
+    exit 1
+fi
+
+docker-compose up -d ganache flextesa
+$PRJT_ROOT/bin/iter-all
+docker-compose up -d

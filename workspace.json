@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "projects": {
+    "cast-interface-v1": "packages/cast/cast-interface-v1",
+    "chain-auth": "packages/cast/chain-auth",
+    "cast-models": "packages/cast/models",
+    "oracle-clients": "packages/cast/oracle-clients",
+    "oracles": "packages/cast/oracles",
+    "cast-eth-v1": "packages/cast/cast-eth-v1",
+    "cast-tz-v1": "packages/cast/cast-tz-v1"
+  }
+}

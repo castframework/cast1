@@ -1,0 +1,3 @@
+  query GetLedgerForPaymentReference($paymentReference: String!) {
+    getLedgerForPaymentReference(paymentReference: $paymentReference)
+  }

@@ -1,0 +1,7 @@
+src/blockchainSpecific/eth/abi/*.json
+node_modules/
+dist/
+.scannerwork/
+reports/
+tsconfig.tsbuildinfo
+tsconfig.lint.tsbuildinfo

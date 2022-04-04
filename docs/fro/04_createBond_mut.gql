@@ -1,0 +1,10 @@
+mutation CreateBond($bond: CreateBondInput!) {
+  createBond(bond: $bond)
+}
+
+# Success
+#{
+#  "data": {
+#    "createBond": "0x29d1dbcb056f276e58692c64af4052d6c11c5e4042e00302f50050a5a81888f7"
+#  }
+#}

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+runOnAll () {
+  $(npm bin)/nx run-many --target=$1 --all --maxParallel
+}
+
+runOnAll clean
+runOnAll build

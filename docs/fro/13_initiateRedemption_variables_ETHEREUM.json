@@ -1,0 +1,29 @@
+{
+  "initiateRedemptionInput": {
+    "settlementDate": "2026-02-11",
+    "operationId": "fce05662-d3c7-4441-9bea-ff319b8237b0",
+    "instrumentAddress": "0x06DC5b4CA5b14d8DB658723f698b991185016061",
+    "instrumentLedger": "ETHEREUM",
+    "tradeId": "fce05662-d3c7-4441-9bea-ff319b8237b0",
+    "tradeDate": "2026-02-11",
+    "settlementModel": "INDIRECT",
+    "intermediateAccountIBAN": "FR7614410000011234567890163",
+    "issuerAddresses": {
+      "deliveryAccountNumber": "0xd5cC383881D6d9A7dc1891A0235E11D03Cb992d3",
+      "paymentAccountNumber": "FR7630001007941234567890185",
+      "legalEntityId": "LEI1"
+    },
+    "participantsAddresses": [
+      {
+        "deliveryAccountNumber": "0x10160030812A8FDd1C1A7354bc11726e09e8EAf7",
+        "paymentAccountNumber": "FR7630001007941234567890185",
+        "legalEntityId": "LEI2"
+      },
+      {
+        "deliveryAccountNumber": "0x9c31787075F57CbEEAb19dFc331A789F0DC73bd2",
+        "paymentAccountNumber": "FR7614410000011234567890163",
+        "legalEntityId": "LEI3"
+      }
+    ]
+  }
+}

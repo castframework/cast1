@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "target": "es6",
+    "types": [],
+    "strictNullChecks": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "tests",
+    "dist"
+  ],
+  "include": [
+    "src"
+  ]
+}

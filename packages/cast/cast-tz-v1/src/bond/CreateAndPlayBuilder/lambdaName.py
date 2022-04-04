@@ -1,0 +1,5 @@
+INITIATE_SUBSCRIPTION = "callInitiateSubscription"
+CONFIRM_PAYMENT_RECEIVED = "callConfirmPaymentReceived"
+CONFIRM_PAYMENT_TRANSFERRED = "callConfirmPaymentTransferred"
+AUTHORIZE_OPERATOR = "callAuthorizeOperator"
+REVOKE_OPERATOR_AUTHORIZATION = "callRevokeOperatorAuthorization"

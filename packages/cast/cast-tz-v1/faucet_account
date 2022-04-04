@@ -1,0 +1,24 @@
+{
+  "mnemonic": [
+    "claim",
+    "judge",
+    "fun",
+    "shed",
+    "hour",
+    "eyebrow",
+    "penalty",
+    "casual",
+    "awake",
+    "quality",
+    "town",
+    "maze",
+    "lobster",
+    "rack",
+    "write"
+  ],
+  "secret": "802215faf7011fc5083938352adaae0044715ac8",
+  "amount": "29073939004",
+  "pkh": "tz1LGMGou1ac9iwdgqYuPg7YXuVxjtFDj815",
+  "password": "g1oIacb43a",
+  "email": "oxqbmloo.krblarng@tezos.example.org"
+}

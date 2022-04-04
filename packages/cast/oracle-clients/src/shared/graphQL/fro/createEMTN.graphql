@@ -1,0 +1,3 @@
+  mutation CreateEMTN($EMTN: CreateEMTNInput!) {
+    createEMTN(EMTN: $EMTN)
+  }

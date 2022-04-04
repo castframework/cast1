@@ -1,0 +1,35 @@
+mutation CreateSettlementTransaction(
+    $settlementTransaction: CreateOracleSettlementTransactionInput!
+  ) {
+    createSettlementTransaction(settlementTransaction: $settlementTransaction) {
+      id
+      settlementType
+      settlementDate
+      operationId
+      instrumentPublicAddress
+      instrumentLedger
+      deliveryQuantity
+      deliverySenderAccountNumber
+      deliveryReceiverAccountNumber
+      paymentAmount
+      paymentCurrency
+      paymentReceiverAccountNumber
+      paymentSenderAccountNumber
+      movements {
+        id
+        movementType
+        senderAccountNumber
+        receiverAccountNumber
+        paymentReference
+      }
+      hash
+      additionalReaderAddresses
+      tradeId
+      tradeDate
+      paymentSenderLegalEntityId
+      paymentReceiverLegalEntityId
+      settlementModel
+      intermediateAccountIBAN
+      holdableTokenAddress
+    }
+  }

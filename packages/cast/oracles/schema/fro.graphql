@@ -1,0 +1,447 @@
+type InstrumentPosition {
+  instrumentAddress: String!
+  ledger: Ledger!
+  balance: Float!
+  legalEntityAddress: String!
+  symbol: String!
+  valueInFiat: Float!
+  currency: Currency!
+  percentage: Float
+  unlocked: Float
+  locked: Float
+}
+
+enum Ledger {
+  ETHEREUM
+  TEZOS
+}
+
+enum Currency {
+  EUR
+}
+
+type InstrumentDetails {
+  issuer: String!
+  registrarAgentAddress: String!
+  settlerAgentAddress: String!
+  contractAddress: String!
+  initialSupply: Float!
+  isinCode: String!
+  name: String!
+  symbol: String!
+  denomination: Float!
+  divisor: Float!
+  startDate: Float!
+  maturityDate: Float!
+  firstCouponDate: Float!
+  couponFrequencyInMonths: Float!
+  interestRateInBips: Float!
+  callable: Boolean!
+  isSoftBullet: Boolean!
+  softBulletPeriodInMonths: Float!
+  type: String!
+}
+
+type SettlementTransactionParticipantAddresses {
+  securityDeliverer: String!
+  securityReceiver: String!
+  securityIssuer: String!
+  settler: String!
+  registrar: String!
+}
+
+type LightSettlementTransaction {
+  id: String!
+  participantAccountNumbers: SettlementTransactionParticipantAddresses!
+}
+
+type ContractNotification {
+  notificationName: ContractNotificationName!
+  instrumentAddress: String!
+  transactionHash: ID
+  lightSettlementTransactions: [LightSettlementTransaction!]!
+  settlementTransactionOperationType: String!
+}
+
+enum ContractNotificationName {
+  SubscriptionInitiated
+  TradeInitiated
+  RedemptionInitiated
+  PaymentReceived
+  PaymentTransferred
+  Transfer
+  SettlementTransactionCanceled
+}
+
+type ErrorNotification {
+  notificationName: ErrorNotificationName!
+  transactionHash: ID!
+  message: String
+}
+
+enum ErrorNotificationName {
+  Error
+}
+
+type LedgerBlockInfo {
+  ledger: Ledger!
+  blockNumber: Float!
+  blockHash: String!
+}
+
+type HeartbeatNotification {
+  notificationName: HeartbeatNotificationName!
+  timestamp: Float!
+  blockInfos: [LedgerBlockInfo!]!
+}
+
+enum HeartbeatNotificationName {
+  Heartbeat
+}
+
+type RegistryNotification {
+  notificationName: RegistryNotificationName!
+  instrumentAddress: String!
+  instrumentLedger: Ledger!
+  transactionHash: ID
+}
+
+enum RegistryNotificationName {
+  InstrumentListed
+  InstrumentUnlisted
+}
+
+type STRSettlementTransaction {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  movements: [Movement!]!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+}
+
+enum SettlementTransactionType {
+  DVP
+  PFOD
+  DWP
+  FOP
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum SettlementModel {
+  DIRECT
+  INDIRECT
+}
+
+type OracleSettlementTransaction {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  movements: [Movement!]!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+  settlementStatus: SettlementTransactionStatus!
+}
+
+enum SettlementTransactionStatus {
+  INITIATED
+  PENDING
+  ACKNOWLEDGED
+  REJECTED
+  UNPROCESSED
+  PROCESSED
+  SETTLED
+  CANCELED
+}
+
+type Movement {
+  id: String!
+  settlementTransactions: [STRSettlementTransaction!]!
+  movementType: MovementType!
+  senderAccountNumber: String!
+  receiverAccountNumber: String!
+  paymentReference: String
+}
+
+enum MovementType {
+  CASH
+  TOKEN
+}
+
+type TransactionDetails {
+  to: String!
+  methodName: String
+  methodParameters: String
+  value: Float
+}
+
+type BlockchainEvent {
+  eventName: String!
+  smartContractAddress: String!
+  blockNumber: Float!
+  blockHash: String!
+  transactionId: String!
+  payload: String!
+}
+
+type TransactionInfo {
+  id: String!
+  nonce: Float!
+  status: TransactionStatus!
+  lastStatusTimestamp: DateTime!
+  blockNumber: Float
+  sendTimestamp: DateTime
+  sendBlockNumber: Float
+  replacedTransactionId: String
+  replacementTransactionId: String
+  details: TransactionDetails
+  currentError: String
+  emittedEvents: [BlockchainEvent!]
+  blockchainSpecificTransactionInfo: BlockchainSpecificTransactionInfo
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+  CANCELLED
+}
+
+union BlockchainSpecificTransactionInfo = EthereumSpecificTransactionInfo | TezosSpecificTransactionInfo
+
+type EthereumSpecificTransactionInfo {
+  gasLimit: Float
+  gasPrice: Float
+}
+
+type TezosSpecificTransactionInfo {
+  weNeedAtLeastOneFieldForGraphql: String
+}
+
+type Query {
+  test: String!
+  getSettlementTransactions(instrumentLedger: Ledger, instrumentAddress: String): [OracleSettlementTransaction!]!
+  getSettlementTransactionsByPaymentReference(paymentReference: String): [OracleSettlementTransaction!]!
+  whoami(ledger: Ledger!): String!
+  getSettlementTransaction(id: String!): OracleSettlementTransaction
+  getAllInstruments(ledger: Ledger!): [String!]
+  getInstrumentDetails(instrumentLedger: Ledger!, contractAddress: String!): InstrumentDetails!
+  getTransactionInfo(transactionId: String!, ledger: Ledger!): TransactionInfo!
+  getInstrumentPositions(ledger: Ledger!, instrumentAddress: String!): [InstrumentPosition!]!
+  getInstrumentPosition(legalEntityAddress: String!, ledger: Ledger!, instrumentAddress: String!): [InstrumentPosition!]!
+}
+
+type Mutation {
+  createBond(bond: CreateBondInput!): String!
+  initiateSubscription(initiateSubscriptionInput: InitiateSubscriptionInput!): String!
+  setupPlatformLevel(level: Float!): String!
+  createEMTN(EMTN: CreateEMTNInput!): String!
+  initiateRedemption(initiateRedemptionInput: InitiateRedemptionInput!): String!
+  cancelSettlementTransaction(cancelSettlementTransactionInput: CancelSettlementTransactionInput!): String!
+  initiateTrade(initiateTradeInput: InitiateTradeInput!): String!
+  boostTransaction(tezosSpecificParams: TezosSpecificParams, ethereumSpecificParams: EthereumSpecificParams, transactionId: String!, ledger: Ledger!): String!
+  cancelTransaction(tezosSpecificParams: TezosSpecificParams, ethereumSpecificParams: EthereumSpecificParams, transactionId: String!, ledger: Ledger!): String!
+}
+
+input CreateBondInput {
+  symbol: String!
+  status: InstrumentStatus!
+  isinCode: String!
+  cfiCode: String!
+  commonCode: String!
+  ledger: Ledger!
+  startDate: DateTime
+  maturityDate: DateTime
+  denomination: Float
+  nominalAmount: Float
+  decimals: Float
+  currency: Currency
+  couponRateInBips: Float
+  couponFrequencyInMonths: Float
+  firstCouponDate: DateTime
+  isCallable: Boolean
+  callFrequency: String
+  registrarAgentAddress: String
+  settlerAgentAddress: String
+  issuerAddress: String
+  extendedMaturityDate: DateTime
+  isSoftBullet: Boolean
+  softBulletPeriodInMonths: Float
+  spread: Float
+  issuerId: String!
+  registrarId: String
+  settlementAgentId: String
+}
+
+enum InstrumentStatus {
+  CREATED
+  ISSUED
+  REDEEMED
+  CANCELLED
+}
+
+input InitiateSubscriptionInput {
+  settlementModel: SettlementModel!
+  intermediateAccountIBAN: String
+  holdableTokenAddress: String
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentAddress: String!
+  instrumentLedger: Ledger!
+  additionalReaderAddresses: [String!]
+  tradeId: String!
+  tradeDate: DateTime!
+  issuerAddresses: ParticipantAdressesWithoutDelivery!
+  investorAddresses: ParticipantAdresses!
+  deliveryQuantity: Float!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+}
+
+input ParticipantAdressesWithoutDelivery {
+  paymentAccountNumber: String!
+  legalEntityId: String!
+}
+
+input ParticipantAdresses {
+  deliveryAccountNumber: String!
+  paymentAccountNumber: String!
+  legalEntityId: String!
+}
+
+input CreateEMTNInput {
+  symbol: String!
+  status: InstrumentStatus!
+  isinCode: String!
+  cfiCode: String!
+  commonCode: String!
+  ledger: Ledger!
+  startDate: DateTime
+  maturityDate: DateTime
+  denomination: Float
+  nominalAmount: Float
+  decimals: Float
+  currency: Currency
+  couponRateInBips: Float
+  couponFrequencyInMonths: Float
+  firstCouponDate: DateTime
+  isCallable: Boolean
+  callFrequency: String
+  registrarAgentAddress: String
+  settlerAgentAddress: String
+  issuerAddress: String
+  EmtnType: EmtnType
+  underlying: Underlying
+  barrier1: Float
+  barrier2: Float
+  isAutocall: Boolean
+  autocallFrequencyInMonths: Float
+  firstAutocallDate: DateTime
+  issuerId: String!
+  registrarId: String
+  settlementAgentId: String
+}
+
+enum EmtnType {
+  type1
+  type2
+}
+
+enum Underlying {
+  UDL1
+  IND1D120
+}
+
+input InitiateRedemptionInput {
+  settlementModel: SettlementModel!
+  intermediateAccountIBAN: String
+  holdableTokenAddress: String
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentAddress: String!
+  instrumentLedger: Ledger!
+  additionalReaderAddresses: [String!]
+  tradeId: String!
+  tradeDate: DateTime!
+  issuerAddresses: ParticipantAdressesWithoutDelivery!
+  participantsAddresses: [ParticipantAdresses!]!
+}
+
+input CancelSettlementTransactionInput {
+  settlementTransactionId: String!
+  instrumentAddress: String!
+  instrumentLedger: Ledger!
+}
+
+input InitiateTradeInput {
+  settlementModel: SettlementModel!
+  intermediateAccountIBAN: String
+  holdableTokenAddress: String
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentAddress: String!
+  instrumentLedger: Ledger!
+  additionalReaderAddresses: [String!]
+  tradeId: String!
+  tradeDate: DateTime!
+  buyerAddresses: ParticipantAdresses!
+  sellerAddresses: ParticipantAdresses!
+  deliveryQuantity: Float!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+}
+
+input TezosSpecificParams {
+  eventSinkProperty: String
+}
+
+input EthereumSpecificParams {
+  gasPrice: Float
+  gasLimit: Float
+}
+
+type Subscription {
+  contractNotification: ContractNotification
+  contractNotificationForInstrumentAddress(instrumentAddress: String!): ContractNotification
+  errorNotification: ErrorNotification
+  heartbeatNotification: HeartbeatNotification
+  registryNotification: RegistryNotification
+}

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+PRJT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P | grep -o '^.*/' )"
+
+# Remove all services but blockchains
+docker-compose rm -s -f postgres-str fro fio1 fso str
+
+# Start all services
+docker-compose up -d

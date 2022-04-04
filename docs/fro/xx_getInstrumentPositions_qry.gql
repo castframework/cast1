@@ -1,0 +1,37 @@
+# Write your query or mutation here
+query GetInstrumentPositions($ledger: Ledger!, $instrumentAddress: String!) {
+    getInstrumentPositions(
+      ledger: $ledger
+      instrumentAddress: $instrumentAddress
+    ) {
+      instrumentAddress
+      ledger
+      balance
+      legalEntityAddress
+      symbol
+      valueInFiat
+      currency
+      percentage
+      unlocked
+      locked
+    }
+  }
+
+#{
+#  "data": {
+#    "getInstrumentPositions": [
+#      {
+#        "instrumentAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+#        "ledger": "ETHEREUM",
+#        "balance": 1000,
+#        "legalEntityAddress": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#        "symbol": "202203021356",
+#        "valueInFiat": 1000000000,
+#        "currency": "EUR",
+#        "percentage": 1,
+#        "unlocked": 999,
+#        "locked": 1
+#      }
+#    ]
+#  }
+#}

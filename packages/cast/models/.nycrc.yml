@@ -1,0 +1,9 @@
+extends: "../../../.nycrc.yml"
+exclude:
+  - "packages/cast/models/**/*.spec.ts"
+include:
+  - "packages/cast/models/src/**/*.ts"
+extension:
+  - ".ts"
+cwd: "../../../"
+report-dir: "reports/coverage/ut-cast-models"

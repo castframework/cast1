@@ -1,0 +1,14 @@
+mutation InitiateTrade(
+    $initiateTradeInput: InitiateTradeInput!
+) {
+    initiateTrade(
+        initiateTradeInput: $initiateTradeInput
+    )
+}
+
+# Success
+#{
+#  "data": {
+#    "initiateTrade": "0xe587542632c1efebfed56ee575a1880019ed49e56e6c95ec5873925d82ef149d"
+#  }
+#}

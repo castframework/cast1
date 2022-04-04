@@ -1,0 +1,11 @@
+  subscription heartbeatNotification {
+    heartbeatNotification {
+      notificationName
+      timestamp
+      blockInfos {
+        ledger
+        blockNumber
+        blockHash
+      }
+    }
+  }

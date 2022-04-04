@@ -1,0 +1,9 @@
+{
+  "data": {
+    "registryNotification": {
+      "notificationName": "InstrumentListed",
+      "instrumentAddress": "0x69DA398f9D7c2EA378dB2603B70A1be92B4351CF",
+      "instrumentLedger": "ETHEREUM"
+    }
+  }
+}

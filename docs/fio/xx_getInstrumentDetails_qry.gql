@@ -1,0 +1,52 @@
+query InstrumentDetails {
+  getInstrumentDetails(
+    instrumentLedger: ETHEREUM, 
+    contractAddress:"0xb5481d300461265F40502a742D46eE8924ECff07"
+  )
+  {
+    issuer
+    registrarAgentAddress
+    settlerAgentAddress
+    contractAddress
+    initialSupply
+    isinCode
+    name
+    symbol
+    denomination
+    divisor
+    startDate
+    maturityDate
+    firstCouponDate
+    couponFrequencyInMonths
+    interestRateInBips
+    callable
+    isSoftBullet
+    softBulletPeriodInMonths
+    
+  }
+}
+
+#{
+#  "data": {
+#    "getInstrumentDetails": {
+#      "issuer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#      "registrarAgentAddress": "0x106f9f9a06c5BB607a8e6c6f2Aec0Ec4fD303F26",
+#      "settlerAgentAddress": "0x58F3988e32Cb39AaC0b47b3c5384371335341195",
+#      "contractAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+#      "initialSupply": 1000,
+#      "isinCode": "202203021356",
+#      "name": "202203021356",
+#      "symbol": "202203021356",
+#      "denomination": 1000000,
+#      "divisor": 100,
+#      "startDate": 1646225779,
+#      "maturityDate": 1772456179,
+#      "firstCouponDate": 1680436579,
+#      "couponFrequencyInMonths": 12,
+#      "interestRateInBips": 0,
+#      "callable": false,
+#      "isSoftBullet": false,
+#      "softBulletPeriodInMonths": 12
+#    }
+#  }
+#}

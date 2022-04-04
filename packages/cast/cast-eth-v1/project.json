@@ -1,0 +1,8 @@
+{
+    "root": "packages/cast/cast-eth-v1",
+    "sourceRoot": "packages/cast/cast-eth-v1/src",
+    "exclude": [],
+    "projectType": "library",
+    "targets": {},
+    "tags": []
+}

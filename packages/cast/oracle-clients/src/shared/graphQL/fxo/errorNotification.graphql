@@ -1,0 +1,7 @@
+  subscription errorNotification {
+    errorNotification {
+      notificationName
+      transactionHash
+      message
+    }
+  }

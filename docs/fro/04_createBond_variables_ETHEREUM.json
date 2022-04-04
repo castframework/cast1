@@ -1,0 +1,31 @@
+{
+  "bond": {
+    "symbol": "202203031112",
+    "status": "CREATED",
+    "isinCode": "202203031112",
+    "cfiCode": "202203031112",
+    "commonCode": "202203031112",
+    "ledger": "ETHEREUM",
+    "startDate": "2022-03-03T10:11:18.729",
+    "maturityDate": "2026-03-03T10:11:18.729",
+    "denomination": 1000000,
+    "nominalAmount": 1000000000,
+    "decimals": null,
+    "currency": "EUR",
+    "couponRateInBips": 0,
+    "couponFrequencyInMonths": 12,
+    "firstCouponDate": "2023-04-03T09:11:18.729",
+    "isCallable": false,
+    "callFrequency": "DAILY",
+    "registrarAgentAddress": "0x106f9f9a06c5bb607a8e6c6f2aec0ec4fd303f26",
+    "settlerAgentAddress": "0x58f3988e32cb39aac0b47b3c5384371335341195",
+    "issuerAddress": "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+    "extendedMaturityDate": "2026-04-03T10:11:18.729",
+    "isSoftBullet": false,
+    "softBulletPeriodInMonths": 12,
+    "spread": 0,
+    "issuerId": "LEI_ISSUER_1",
+    "registrarId": "LEI_REGISTRAR",
+    "settlementAgentId": "LEI_SETTLEMENT_AGENT"
+  }
+}

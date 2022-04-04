@@ -1,0 +1,149 @@
+{
+  "description": "Metadata for typing sent to contract",
+  "contracts": {
+    "ForgeBond": {
+      "constructor": [
+        {
+          "name": "initialSupply",
+          "type": "uint"
+        },
+        {
+          "name": "isinCode",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "denomination",
+          "type": "uint"
+        },
+        {
+          "name": "divisor",
+          "type": "uint"
+        },
+        {
+          "name": "startDate",
+          "type": "uint"
+        },
+        {
+          "name": "maturityDate",
+          "type": "uint"
+        },
+        {
+          "name": "firstCouponDate",
+          "type": "uint"
+        },
+        {
+          "name": "couponFrequencyInMonths",
+          "type": "uint"
+        },
+        {
+          "name": "interestRateInBips",
+          "type": "uint"
+        },
+        {
+          "name": "callable",
+          "type": "bool"
+        },
+        {
+          "name": "isSoftBullet",
+          "type": "bool"
+        },
+        {
+          "name": "softBulletPeriodInMonths",
+          "type": "uint"
+        },
+        {
+          "name": "registrar",
+          "type": "address"
+        },
+        {
+          "name": "settler",
+          "type": "address"
+        },
+        {
+          "name": "owner",
+          "type": "address"
+        }
+      ]
+    },
+    "ForgeTokenFactory": {
+      "createForgeBond": [
+        {
+          "name": "initialSupply",
+          "type": "uint"
+        },
+        {
+          "name": "isinCode",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "denomination",
+          "type": "uint"
+        },
+        {
+          "name": "divisor",
+          "type": "uint"
+        },
+        {
+          "name": "startDate",
+          "type": "uint"
+        },
+        {
+          "name": "maturityDate",
+          "type": "uint"
+        },
+        {
+          "name": "firstCouponDate",
+          "type": "uint"
+        },
+        {
+          "name": "couponFrequencyInMonths",
+          "type": "uint"
+        },
+        {
+          "name": "interestRateInBips",
+          "type": "uint"
+        },
+        {
+          "name": "callable",
+          "type": "bool"
+        },
+        {
+          "name": "isSoftBullet",
+          "type": "bool"
+        },
+        {
+          "name": "softBulletPeriodInMonths",
+          "type": "uint"
+        },
+        {
+          "name": "registrar",
+          "type": "address"
+        },
+        {
+          "name": "settler",
+          "type": "address"
+        },
+        {
+          "name": "owner",
+          "type": "address"
+        }
+      ]
+    }
+  }
+}

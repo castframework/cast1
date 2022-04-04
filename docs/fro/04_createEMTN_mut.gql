@@ -1,0 +1,12 @@
+mutation CreateEMTN($EMTN: CreateEMTNInput!) {
+  createEMTN(EMTN: $EMTN)
+}
+
+
+
+# Success
+#{
+#  "data": {
+#    "createEMTN": "opYtGspfucYJRSxkfzWHbvQr29YnWQ4raWEhZxip7bNTCeJzqRG"
+#  }
+#}

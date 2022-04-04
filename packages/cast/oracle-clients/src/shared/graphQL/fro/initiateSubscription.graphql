@@ -1,0 +1,5 @@
+  mutation InitiateSubscription(
+    $initiateSubscriptionInput: InitiateSubscriptionInput!
+  ) {
+    initiateSubscription(initiateSubscriptionInput: $initiateSubscriptionInput)
+  }

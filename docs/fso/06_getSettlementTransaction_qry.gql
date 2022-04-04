@@ -1,0 +1,93 @@
+# Get ID From ContractNotification TradeInitiated
+query GetSettlementTransaction($id: String!) {
+  getSettlementTransaction(id: $id) {
+    deliveryQuantity
+    deliveryReceiverAccountNumber
+    deliverySenderAccountNumber
+    hash
+    id
+    instrumentLedger
+    instrumentPublicAddress
+    paymentSenderLegalEntityId
+    paymentReceiverLegalEntityId
+    movements {
+      id
+      paymentReference
+      receiverAccountNumber
+      senderAccountNumber
+      movementType
+    }
+    operationId
+    paymentAmount
+    paymentCurrency
+    paymentReceiverAccountNumber
+    paymentSenderAccountNumber
+    settlementDate
+    settlementStatus
+    settlementType
+    additionalReaderAddresses
+    tradeDate
+    tradeId
+    settlementModel
+    intermediateAccountIBAN
+    holdableTokenAddress
+  }
+}
+
+#{
+#  "data": {
+#    "getSettlementTransaction": {
+#      "deliveryQuantity": 1,
+#      "deliveryReceiverAccountNumber": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#      "deliverySenderAccountNumber": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#      "hash": "b2ab5688a8a5768b7e805c3cc51bdba160e54f6b",
+#      "id": "dd500824-01d3-4112-a469-3f55b230d51e",
+#      "instrumentLedger": "ETHEREUM",
+#      "instrumentPublicAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+#      "paymentSenderLegalEntityId": "LEI_INVESTOR_1",
+#      "paymentReceiverLegalEntityId": "LEI_ISSUER_1",
+#      "movements": [
+#        {
+#          "id": "7798aab0-e93e-49f8-99d1-959ab8c827a6",
+#          "paymentReference": "d13f1ca6bd62a643",
+#          "receiverAccountNumber": "FR7630003011300300000000000",
+#          "senderAccountNumber": "FR7630003011300500000000000",
+#          "movementType": "CASH"
+#        },
+#        {
+#          "id": "f1304757-953b-4a93-b1f9-1256346cde32",
+#          "paymentReference": "0ceff80579e27fee",
+#          "receiverAccountNumber": "FR7630003011300400000000000",
+#          "senderAccountNumber": "FR7630003011300300000000000",
+#          "movementType": "CASH"
+#        },
+#        {
+#          "id": "14b2331d-99ce-4283-91bc-4419170d0a20",
+#          "paymentReference": null,
+#          "receiverAccountNumber": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#          "senderAccountNumber": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#          "movementType": "TOKEN"
+#        }
+#      ],
+#      "operationId": "b4eebcac-59d4-4a88-9c41-18a116365c39",
+#      "paymentAmount": 980000,
+#      "paymentCurrency": "EUR",
+#      "paymentReceiverAccountNumber": "FR7630003011300400000000000",
+#      "paymentSenderAccountNumber": "FR7630003011300500000000000",
+#      "settlementDate": "2022-04-02T11:56:19.596Z",
+#      "settlementStatus": "ACKNOWLEDGED",
+#      "settlementType": "DVP",
+#      "additionalReaderAddresses": [
+#        "0x58f3988e32cb39aac0b47b3c5384371335341195",
+#        "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+#        "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#        "0x106f9f9a06c5bb607a8e6c6f2aec0ec4fd303f26"
+#      ],
+#      "tradeDate": "2022-03-02T12:56:19.596Z",
+#      "tradeId": "f255e97c-1d03-4de2-82fa-b6c157dcd481",
+#      "settlementModel": "INDIRECT",
+#      "intermediateAccountIBAN": "FR7630003011300300000000000",
+#      "holdableTokenAddress": null
+#    }
+#  }
+#}

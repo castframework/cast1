@@ -1,0 +1,5 @@
+mutation CancelSettlementTransaction(
+    $cancelSettlementTransactionInput: CancelSettlementTransactionInput!
+  ) {
+    cancelSettlementTransaction(cancelSettlementTransactionInput: $cancelSettlementTransactionInput)
+  }

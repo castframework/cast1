@@ -1,0 +1,52 @@
+[
+  {
+    "action": "originate",
+    "path": "src/EventSink",
+    "register": "SINK"
+  },
+  {
+    "action": "originate",
+    "path": "src/ForgeInstrumentRegistry",
+    "register": "REGISTRY"
+  },
+  {
+    "action": "originate",
+    "path": "src/bond/CreateAndPlayBuilder",
+    "register": "LAMBDA_BOND"
+  },
+  {
+    "action": "originate",
+    "path": "src/bond/ForgeBondFactory",
+    "register": "FACTORY_BOND"
+  },
+  {
+    "action": "bind",
+    "lambda": "LAMBDA_BOND",
+    "target": "FACTORY_BOND"
+  },
+  {
+    "action": "authorizeFactory",
+    "registry": "REGISTRY",
+    "target": "FACTORY_BOND"
+  },
+  {
+    "action": "originate",
+    "path": "src/emtn/CreateAndPlayBuilder",
+    "register": "LAMBDA_EMTN"
+  },
+  {
+    "action": "originate",
+    "path": "src/emtn/ForgeEmtnFactory",
+    "register": "FACTORY_EMTN"
+  },
+  {
+    "action": "bind",
+    "lambda": "LAMBDA_EMTN",
+    "target": "FACTORY_EMTN"
+  },
+  {
+    "action": "authorizeFactory",
+    "registry": "REGISTRY",
+    "target": "FACTORY_EMTN"
+  }
+]

@@ -1,0 +1,90 @@
+subscription {
+  contractNotification {
+		notificationName
+    instrumentAddress
+    transactionHash
+    lightSettlementTransactions {
+      id
+      participantAccountNumbers {
+        securityDeliverer
+        securityReceiver
+        
+      }
+    }
+  }
+}
+
+#{
+#  "data": {
+#    "contractNotification": {
+#      "notificationName": "SubscriptionInitiated",
+#      "instrumentAddress": "0x7811126D6F73daa25832828af88702EB529fe820",
+#      "transactionHash": "0x61598c86fbfb3ab2ee870bde4281b5805c602fbbb9cccb62472fd0582136ca76",
+#      "lightSettlementTransactions": [
+#        {
+#          "id": "6fb70f81-7b4b-48b1-96d9-67bfeff3c891",
+#          "participantAccountNumbers": {
+#            "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "securityReceiver": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3"
+#          }
+#        }
+#      ]
+#    }
+#  }
+
+# {
+#   "data": {
+#     "contractNotification": {
+#       "notificationName": "Transfer",
+#       "instrumentAddress": "0x923ea8ebA9dE149Bd41a0f06E183e5aE3e4C528F",
+#       "transactionHash": "0x59aa2ffd6cc7ec19394acf5a29ca5c36c3e9990ac9bf356d41a4d48bd21884ee",
+#       "lightSettlementTransactions": [
+#         {
+#           "id": "no Data",
+#           "participantAccountNumbers": {
+#             "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#             "securityReceiver": "0x9ac5d0Ee58f35040d56E8f3082341Ee5f2AC5a98"
+#           }
+#         }
+#       ]
+#     }
+#   }
+# }
+
+# {
+#   "data": {
+#     "contractNotification": {
+#       "notificationName": "PaymentReceived",
+#       "instrumentAddress": "0x923ea8ebA9dE149Bd41a0f06E183e5aE3e4C528F",
+#       "transactionHash": "0x59aa2ffd6cc7ec19394acf5a29ca5c36c3e9990ac9bf356d41a4d48bd21884ee",
+#       "lightSettlementTransactions": [
+#         {
+#           "id": "2b8d53db-53fa-45e4-bd82-943bf31cb9bb",
+#           "participantAccountNumbers": {
+#             "securityDeliverer": "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+#             "securityReceiver": "0x9ac5d0ee58f35040d56e8f3082341ee5f2ac5a98"
+#           }
+#         }
+#       ]
+#     }
+#   }
+# }
+
+# {
+#   "data": {
+#     "contractNotification": {
+#       "notificationName": "PaymentTransferred",
+#       "instrumentAddress": "0x923ea8ebA9dE149Bd41a0f06E183e5aE3e4C528F",
+#       "transactionHash": "0xb1bdf71daf38b16938f47b8bdec11910268678969e092ca7d9234064f78066df",
+#       "lightSettlementTransactions": [
+#         {
+#           "id": "2b8d53db-53fa-45e4-bd82-943bf31cb9bb",
+#           "participantAccountNumbers": {
+#             "securityDeliverer": "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+#             "securityReceiver": "0x9ac5d0ee58f35040d56e8f3082341ee5f2ac5a98"
+#           }
+#         }
+#       ]
+#     }
+#   }
+# }

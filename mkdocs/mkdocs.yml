@@ -1,0 +1,14 @@
+site_name: Cast v1
+nav:
+  - Home: index.md
+  - Tutorials :
+    - Bond Emission: tutorials/bondEmission.md
+  - Modules:
+    - modules/explorerFRO.md
+    - modules/explorerFSO.md
+  - Glossary: glossary.md
+theme:
+  name: mkdocs
+  custom_dir: overrides
+extra_css:
+  - css/extra.css

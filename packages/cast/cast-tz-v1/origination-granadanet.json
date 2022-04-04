@@ -1,0 +1,58 @@
+{
+  "context": {
+    "ADMIN": "tz1LGMGou1ac9iwdgqYuPg7YXuVxjtFDj815",
+    "REGISTRAR": "tz1es1Cci5T4NWhYHep7gnj3M3aF7Vq9CiLL"
+  },
+  "sequence": [
+    {
+      "action": "originate",
+      "path": "src/eventSink",
+      "register": "SINK"
+    },
+    {
+      "action": "originate",
+      "path": "src/instrumentRegistry",
+      "register": "REGISTRY"
+    },
+    {
+      "action": "originate",
+      "path": "src/bond/builders",
+      "register": "LAMBDA_BOND"
+    },
+    {
+      "action": "originate",
+      "path": "src/bond/factory",
+      "register": "FACTORY_BOND"
+    },
+    {
+      "action": "bind",
+      "lambda": "LAMBDA_BOND",
+      "target": "FACTORY_BOND"
+    },
+    {
+      "action": "authorizeFactory",
+      "registry": "REGISTRY",
+      "target": "FACTORY_BOND"
+    },
+    {
+      "action": "originate",
+      "path": "src/emtn/builders",
+      "register": "LAMBDA_EMTN"
+    },
+    {
+      "action": "originate",
+      "path": "src/emtn/factory",
+      "register": "FACTORY_EMTN"
+    },
+    {
+      "action": "bind",
+      "lambda": "LAMBDA_EMTN",
+      "target": "FACTORY_EMTN"
+    },
+    {
+      "action": "authorizeFactory",
+      "registry": "REGISTRY",
+      "target": "FACTORY_EMTN"
+    }
+  ]
+}

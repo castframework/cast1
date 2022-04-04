@@ -1,0 +1,18 @@
+  subscription contractNotification {
+    contractNotification {
+      transactionHash
+      instrumentAddress
+      notificationName
+      lightSettlementTransactions {
+        id
+        participantAccountNumbers {
+          securityDeliverer
+          securityReceiver
+          securityIssuer
+          settler
+          registrar
+        }
+      }
+      settlementTransactionOperationType
+    }
+  }

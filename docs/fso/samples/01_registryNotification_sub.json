@@ -1,0 +1,10 @@
+{
+  "data": {
+    "registryNotification": {
+      "notificationName": "InstrumentListed",
+      "instrumentAddress": "0xbCAd46CD2ceDcdc40ddF2121dC88b52fA654b927",
+      "instrumentLedger": "ETHEREUM",
+      "trackingUUID": "ca3f1be8-f660-4e39-8eee-ff4b29baafa0"
+    }
+  }
+}

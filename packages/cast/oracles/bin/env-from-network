@@ -1,0 +1,145 @@
+#!/bin/sh
+
+display_help() {
+    echo "Usage: $0 -i [identity] --network-folder [network folder]" >&2
+    echo
+    echo "   -i, --identity              Set which identity to pick from in keys.json file. Use IDENTITY environment variable if not set"
+    echo "   -n, --network-folder        Network folder to use. Use NETWORK_FOLDER environment variable if not set"
+    echo
+    exit 1
+}
+
+################################
+# Check if parameters options  #
+# are given on the commandline #
+################################
+while :; do
+    case "$1" in
+    -i | --identity)
+        if [ $# -ne 0 ]; then
+            identity="$2"
+        fi
+        shift 2
+        ;;
+    -h | --help)
+        display_help # Call your function
+        exit 0
+        ;;
+    -n | --network-folder)
+        network_folder="$2"
+        shift 2
+        ;;
+
+    --) # End of all options
+        shift
+        break
+        ;;
+    -*)
+        echo "Error: Unknown option: $1" >&2
+        display_help
+        exit 1
+        ;;
+    *) # No more options
+        break
+        ;;
+    esac
+done
+
+if [ -z ${identity+x} ]; then
+    if [ -n "${IDENTITY}" ]; then
+        identity=$IDENTITY
+    else
+        echo "No identity argument found. Make sure you set -i argument or IDENTITY environment variable"  >&2
+        display_help
+        exit 1
+    fi
+fi
+
+if [ -z ${network_folder+x} ]; then
+    if [ -n "${NETWORK_FOLDER}" ]; then
+        network_folder=$NETWORK_FOLDER
+    else
+        echo "No network folder argument found. Make sure you set -n argument or NETWORK_FOLDER environment variable"  >&2
+        display_help
+        exit 1
+    fi
+fi
+
+### ETHEREUM
+export NETWORK_ETH_FOLDER="$network_folder/ethereum"
+ETH_REGISTRY_ADDRESS=$("$(npm bin)"/jqn 'get("ForgeInstrumentRegistry")' <"$NETWORK_ETH_FOLDER"/contracts.json)
+export ETH_REGISTRY_ADDRESS
+
+if [ -z "${ETH_REGISTRY_ADDRESS}" ]; then
+    echo "Ethereum registry address not found in $NETWORK_ETH_FOLDER/contracts.json"
+    exit 1
+fi
+
+ETH_PRIVATE_KEY=$("$(npm bin)"/jqn "get(\"$identity\")" <"$NETWORK_ETH_FOLDER"/keys.json)
+export ETH_PRIVATE_KEY
+
+if [ -z "${ETH_PRIVATE_KEY}" ]; then
+    echo "Identity $identity not found in $NETWORK_ETH_FOLDER/keys.json"
+    exit 1
+fi
+
+if [ -z "${ETH_BLOCKCHAIN_PROVIDE_LOCATION}" ]; then
+    ETH_BLOCKCHAIN_PROVIDE_LOCATION=$("$(npm bin)"/jqn 'get("host")' <"$NETWORK_ETH_FOLDER"/node.json)
+    export ETH_BLOCKCHAIN_PROVIDE_LOCATION
+else
+    echo "ETH_BLOCKCHAIN_PROVIDE_LOCATION already set to $ETH_BLOCKCHAIN_PROVIDE_LOCATION. Not overriding"
+fi
+
+if [ -z "${ETH_BLOCKCHAIN_PROVIDE_LOCATION}" ]; then
+    echo "Node identity $identity not found in $NETWORK_ETH_FOLDER/node.json"
+    exit 1
+fi
+
+### TEZOS
+
+export NETWORK_TZ_FOLDER="$network_folder/tezos"
+TZ_REGISTRY_ADDRESS=$("$(npm bin)"/jqn 'get("REGISTRY")' <"$NETWORK_TZ_FOLDER"/contracts.json)
+
+export TZ_REGISTRY_ADDRESS
+
+export TZ_REGISTRY_ADDRESS
+
+if [ -z "${TZ_REGISTRY_ADDRESS}" ]; then
+    echo "Tezos registry address not found in $NETWORK_TZ_FOLDER/contracts.json"
+    exit 1
+fi
+
+TZ_PRIVATE_KEY=$("$(npm bin)"/jqn "get(\"$identity\")" <"$NETWORK_TZ_FOLDER"/keys.json)
+export TZ_PRIVATE_KEY
+
+if [ -z "${TZ_PRIVATE_KEY}" ]; then
+    echo "Identity $identity not found in $NETWORK_TZ_FOLDER/keys.json"
+    exit 1
+fi
+
+if [ -z "${TZ_BLOCKCHAIN_PROVIDE_LOCATION}" ]; then
+    TZ_BLOCKCHAIN_PROVIDE_LOCATION=$("$(npm bin)"/jqn 'get("host")' <"$NETWORK_TZ_FOLDER"/node.json)
+    export TZ_BLOCKCHAIN_PROVIDE_LOCATION
+else
+    echo "TZ_BLOCKCHAIN_PROVIDE_LOCATION already set to $TZ_BLOCKCHAIN_PROVIDE_LOCATION. Not overriding"
+fi
+
+if [ -z "${TZ_BLOCKCHAIN_PROVIDE_LOCATION}" ]; then
+    echo "Node identity $identity not found in $NETWORK_TZ_FOLDER/node.json"
+    exit 1
+fi
+
+
+echo
+echo Ethereum configuration
+echo
+echo Registry: "$ETH_REGISTRY_ADDRESS"
+echo Private key: "$ETH_PRIVATE_KEY"
+echo Hostname: "$ETH_BLOCKCHAIN_PROVIDE_LOCATION"
+echo
+echo Tezos configuration
+echo
+echo Registry: "$TZ_REGISTRY_ADDRESS"
+echo Private key: "$TZ_PRIVATE_KEY"
+echo Hostname: "$TZ_BLOCKCHAIN_PROVIDE_LOCATION"
+echo

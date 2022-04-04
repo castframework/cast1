@@ -1,0 +1,110 @@
+subscription contractNotification {
+  contractNotification {
+    transactionHash
+    instrumentAddress
+    notificationName
+    lightSettlementTransactions {
+      id
+      participantAccountNumbers {
+        securityDeliverer
+        securityReceiver
+        securityIssuer
+        settler
+        registrar
+      }
+    }
+    settlementTransactionOperationType
+  }
+}
+
+#{
+#  "data": {
+#    "contractNotification": {
+#      "transactionHash": "0x9d4bf6e1ef50b88da1baaaee763f03241b0c17008c3802db21cd3c1aca1263d1",
+#      "instrumentAddress": "0x37CA41fc689E7293a71bcaF9aa48811CF735b014",
+#      "notificationName": "SubscriptionInitiated",
+#      "lightSettlementTransactions": [
+#        {
+#          "id": "663b704b-dcd1-4ccf-8f28-bc6f593f532c",
+#          "participantAccountNumbers": {
+#            "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "securityReceiver": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#            "securityIssuer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "settler": "0x58F3988e32Cb39AaC0b47b3c5384371335341195",
+#            "registrar": "0x106f9f9a06c5BB607a8e6c6f2Aec0Ec4fD303F26"
+#          }
+#        }
+#      ],
+#      "settlementTransactionOperationType": "Subscription"
+#    }
+#  }
+#}
+
+#{
+#  "data": {
+#    "contractNotification": {
+#      "transactionHash": "0x6c8f8c6591bd8a55e9a3dc249a082cbd88038edc8ac2b5b09cefe1794f4b957d",
+#      "instrumentAddress": "0x37CA41fc689E7293a71bcaF9aa48811CF735b014",
+#      "notificationName": "Transfer",
+#      "lightSettlementTransactions": [
+#        {
+#          "id": "no Data",
+#          "participantAccountNumbers": {
+#            "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "securityReceiver": "0xEe39c0435ab3c4a205e9E117DceA0CC7610D7dc3",
+#            "securityIssuer": "no Data",
+#            "settler": "no Data",
+#            "registrar": "no Data"
+#          }
+#        }
+#      ],
+#      "settlementTransactionOperationType": "no Data"
+#    }
+#  }
+#}
+
+#{
+#  "data": {
+#    "contractNotification": {
+#      "transactionHash": "0x6c8f8c6591bd8a55e9a3dc249a082cbd88038edc8ac2b5b09cefe1794f4b957d",
+#      "instrumentAddress": "0x37CA41fc689E7293a71bcaF9aa48811CF735b014",
+#      "notificationName": "PaymentReceived",
+#      "lightSettlementTransactions": [
+#        {
+#          "id": "663b704b-dcd1-4ccf-8f28-bc6f593f532c",
+#          "participantAccountNumbers": {
+#            "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "securityReceiver": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#            "securityIssuer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "settler": "0x58F3988e32Cb39AaC0b47b3c5384371335341195",
+#            "registrar": "0x106f9f9a06c5BB607a8e6c6f2Aec0Ec4fD303F26"
+#          }
+#        }
+#      ],
+#      "settlementTransactionOperationType": "Subscription"
+#    }
+#  }
+#}
+
+#{
+#  "data": {
+#    "contractNotification": {
+#      "transactionHash": "0x47b12de5db70c45514c0a259886abe9413bddf5b6555b775f14fd4e4cb882c23",
+#      "instrumentAddress": "0x37CA41fc689E7293a71bcaF9aa48811CF735b014",
+#      "notificationName": "PaymentTransferred",
+#      "lightSettlementTransactions": [
+#        {
+#          "id": "663b704b-dcd1-4ccf-8f28-bc6f593f532c",
+#          "participantAccountNumbers": {
+#            "securityDeliverer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "securityReceiver": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#            "securityIssuer": "0x23041c3E04A6770Df70616608b6b1517735f7fC2",
+#            "settler": "0x58F3988e32Cb39AaC0b47b3c5384371335341195",
+#            "registrar": "0x106f9f9a06c5BB607a8e6c6f2Aec0Ec4fD303F26"
+#          }
+#        }
+#      ],
+#      "settlementTransactionOperationType": "Subscription"
+#    }
+#  }
+#}

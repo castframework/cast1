@@ -1,0 +1,9 @@
+{
+    "root": "packages/cast/chain-auth",
+    "sourceRoot": "packages/cast/chain-auth/src",
+    "projectType": "library",
+    "exclude": [],
+    "targets": {
+    },
+    "tags": []
+}

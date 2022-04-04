@@ -1,0 +1,8 @@
+{
+    "root": "packages/cast/models",
+    "sourceRoot": "packages/cast/models/src",
+    "projectType": "library",
+    "targets": {
+    },
+    "tags": []
+}

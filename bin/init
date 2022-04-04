@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+PRJT_ROOT="$(
+    cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1
+    pwd -P | grep -o '^.*/'
+)"
+
+mkdir -p "${PRJT_ROOT}/logs"
+
+# Install lerna if needed
+if ! command -v lerna >/dev/null 2>&1; then
+    npm i -g lerna
+fi
+
+# Install nx if needed
+if ! command -v nx >/dev/null 2>&1; then
+    npm i -g nx
+    npm i @nrwl/cli
+    npm i @nrwl/tao
+    npm i @nrwl/workspace
+fi
+
+source $NVM_DIR/nvm.sh
+nvm use
+lerna bootstrap --strict --hoist
+${PRJT_ROOT}bin/build

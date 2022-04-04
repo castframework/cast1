@@ -1,0 +1,8 @@
+{
+  "host": "PUT YOU ETH NODE URL HERE",
+  "network_id": 3,
+  "skipDryRun": true,
+  "networkCheckTimeout": 3600000,
+  "timeoutBlocks": 1000,
+  "confirmations": 2
+}

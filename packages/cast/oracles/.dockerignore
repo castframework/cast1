@@ -1,0 +1,4 @@
+# files ignored by docker (not sent to docker daemon in the build context)
+dist
+node_modules
+docker-compose.yml

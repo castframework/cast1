@@ -1,0 +1,8 @@
+{
+    "root": "packages/cast/oracles",
+    "sourceRoot": "packages/cast/oracles/src",
+    "projectType": "application",
+    "targets": {
+    },
+    "tags": []
+}

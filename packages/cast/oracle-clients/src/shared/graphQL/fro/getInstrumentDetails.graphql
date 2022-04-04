@@ -1,0 +1,28 @@
+query GetInstrumentDetails(
+    $instrumentLedger: Ledger!
+    $instrumentAddress: String!
+  ) {
+    getInstrumentDetails(
+      instrumentLedger: $instrumentLedger
+      contractAddress: $instrumentAddress
+    ) {
+      issuer
+      registrarAgentAddress
+      settlerAgentAddress
+      contractAddress
+      initialSupply
+      isinCode
+      name
+      symbol
+      denomination
+      divisor
+      startDate
+      maturityDate
+      firstCouponDate
+      couponFrequencyInMonths
+      interestRateInBips
+      callable
+      isSoftBullet
+      softBulletPeriodInMonths
+    }
+  }

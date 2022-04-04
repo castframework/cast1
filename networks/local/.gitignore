@@ -1,0 +1,7 @@
+env
+ethereum/coinbase.json
+ethereum/keys.json
+mnemonic.json
+tezos/coinbase.json
+tezos/keys.json
+

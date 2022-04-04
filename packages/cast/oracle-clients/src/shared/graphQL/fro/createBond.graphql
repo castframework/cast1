@@ -1,0 +1,3 @@
+  mutation CreateBond($bond: CreateBondInput!) {
+    createBond(bond: $bond)
+  }

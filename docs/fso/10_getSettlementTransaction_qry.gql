@@ -1,0 +1,49 @@
+# Get ID From ContractNotification TradeInitiated
+query SettlementTransactionQuery {
+  getSettlementTransaction(id: "b93af99d-6ff5-47bd-bd95-fbddb841509a") {
+    id
+    deliveryQuantity
+    paymentAmount
+    movements {
+      movementType
+      senderAccountNumber
+      receiverAccountNumber
+      paymentReference
+    }
+    hash
+    settlementStatus
+  }
+}
+
+# Success
+# {
+#   "data": {
+#     "getSettlementTransaction": {
+#       "id": "b93af99d-6ff5-47bd-bd95-fbddb841509a",
+#       "deliveryQuantity": 100,
+#       "paymentAmount": 98000000,
+#       "movements": [
+#         {
+#           "movementType": "CASH",
+#           "senderAccountNumber": "FR7630003011300500000000000",
+#           "receiverAccountNumber": "FR7630003011300300000000000",
+#           "paymentReference": "47b197d6f28eaa95"
+#         },
+#         {
+#           "movementType": "CASH",
+#           "senderAccountNumber": "FR7630003011300300000000000",
+#           "receiverAccountNumber": "FR7630003011300400000000000",
+#           "paymentReference": "105a32749a552b6e"
+#         },
+#         {
+#           "movementType": "TOKEN",
+#           "senderAccountNumber": "0xee39c0435ab3c4a205e9e117dcea0cc7610d7dc3",
+#           "receiverAccountNumber": "0x23041c3e04a6770df70616608b6b1517735f7fc2",
+#           "paymentReference": null
+#         }
+#       ],
+#       "hash": "5bb09efebbdf84180d61ba6d45229bdb106ef1a3",
+#       "settlementStatus": "SETTLED"
+#     }
+#   }
+# }

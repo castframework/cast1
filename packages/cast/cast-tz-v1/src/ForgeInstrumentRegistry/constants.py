@@ -1,0 +1,2 @@
+EVENT_INSTRUMENT_LISTED = 'InstrumentListed'
+EVENT_INSTRUMENT_UNLISTED = 'InstrumentUnlisted'

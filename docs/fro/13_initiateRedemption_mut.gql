@@ -1,0 +1,14 @@
+mutation InitiateRedemption(
+  $initiateRedemptionInput: InitiateRedemptionInput!
+) {
+  initiateRedemption(
+    initiateRedemptionInput: $initiateRedemptionInput
+  )
+}
+
+# Success
+#{
+#  "data": {
+#    "initiateRedemption": "0x0a8fc3c2cc18cee53e6c82e455b2040f607e71d9a75e3ddec57ff97ca1383d14"
+#  }
+#}

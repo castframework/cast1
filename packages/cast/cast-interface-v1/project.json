@@ -1,0 +1,7 @@
+{
+    "root": "packages/cast/cast-interface-v1",
+    "sourceRoot": "packages/cast/cast-interface-v1/src",
+    "projectType": "library",
+    "targets": {},
+    "tags": []
+}

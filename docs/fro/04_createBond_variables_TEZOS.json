@@ -1,0 +1,31 @@
+{
+  "bond": {
+    "symbol": "202203031531",
+    "status": "CREATED",
+    "isinCode": "202203031531",
+    "cfiCode": "202203031531",
+    "commonCode": "202203031531",
+    "ledger": "TEZOS",
+    "startDate": "2022-03-03T14:31:56.432",
+    "maturityDate": "2026-03-03T14:31:56.432",
+    "denomination": 1000000,
+    "nominalAmount": 1000000000,
+    "decimals": null,
+    "currency": "EUR",
+    "couponRateInBips": 0,
+    "couponFrequencyInMonths": 12,
+    "firstCouponDate": "2023-04-03T13:31:56.432",
+    "isCallable": false,
+    "callFrequency": "DAILY",
+    "registrarAgentAddress": "tz1T8eTR65yDh8BUCt9uJzezE2EES5hkCXYe",
+    "settlerAgentAddress": "tz1RVzWy8E5maFG2sSh7kdu82byKP2P9w1Zf",
+    "issuerAddress": "tz1cGWYSpPh5NPkKUhY9mesCdLe468h8qsBR",
+    "extendedMaturityDate": "2026-04-03T10:11:18.729",
+    "isSoftBullet": false,
+    "softBulletPeriodInMonths": 12,
+    "spread": 0,
+    "issuerId": "LEI_ISSUER_1",
+    "registrarId": "LEI_REGISTRAR",
+    "settlementAgentId": "LEI_SETTLEMENT_AGENT"
+  }
+}

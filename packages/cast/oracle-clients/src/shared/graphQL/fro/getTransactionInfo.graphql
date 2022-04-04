@@ -1,0 +1,36 @@
+  query GetTransactionInfo($ledger: Ledger!, $transactionId: String!) {
+    getTransactionInfo(ledger: $ledger, transactionId: $transactionId) {
+      id
+      nonce
+      status
+      lastStatusTimestamp
+      blockNumber
+      sendTimestamp
+      sendBlockNumber
+      replacedTransactionId
+      replacementTransactionId
+      details {
+        methodName
+        methodParameters
+        value
+      }
+      currentError
+      emittedEvents {
+        eventName
+        smartContractAddress
+        blockNumber
+        blockHash
+        transactionId
+        payload
+      }
+      blockchainSpecificTransactionInfo {
+        ... on EthereumSpecificTransactionInfo {
+          gasLimit
+          gasPrice
+        }
+        ... on TezosSpecificTransactionInfo {
+          weNeedAtLeastOneFieldForGraphql
+        }
+      }
+    }
+  }

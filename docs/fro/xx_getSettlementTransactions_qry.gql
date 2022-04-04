@@ -1,0 +1,34 @@
+query GetSettlementTransactions {
+    getSettlementTransactions {
+      deliveryQuantity
+      deliveryReceiverAccountNumber
+      deliverySenderAccountNumber
+      hash
+      id
+      instrumentLedger
+      instrumentPublicAddress
+      paymentSenderLegalEntityId
+      paymentReceiverLegalEntityId
+      movements {
+        id
+        paymentReference
+        receiverAccountNumber
+        senderAccountNumber
+        movementType
+      }
+      operationId
+      paymentAmount
+      paymentCurrency
+      paymentReceiverAccountNumber
+      paymentSenderAccountNumber
+      settlementDate
+      settlementStatus
+      settlementType
+      additionalReaderAddresses
+      tradeDate
+      tradeId
+      settlementModel
+      intermediateAccountIBAN
+      holdableTokenAddress
+    }
+  }

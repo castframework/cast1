@@ -1,0 +1,8 @@
+  subscription registryNotification {
+    registryNotification {
+      notificationName
+      instrumentAddress
+      instrumentLedger
+      transactionHash
+    }
+  }

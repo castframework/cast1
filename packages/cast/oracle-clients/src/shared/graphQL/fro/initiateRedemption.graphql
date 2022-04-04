@@ -1,0 +1,5 @@
+  mutation InitiateRedemption(
+    $initiateRedemptionInput: InitiateRedemptionInput!
+  ) {
+    initiateRedemption(initiateRedemptionInput: $initiateRedemptionInput)
+  }

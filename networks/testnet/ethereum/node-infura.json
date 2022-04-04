@@ -1,0 +1,9 @@
+{
+  "host": "PUT YOUR INFURA URL HERE",
+  "gasPrice": 2000000000,
+  "network_id": 3,
+  "skipDryRun": true,
+  "networkCheckTimeout": 3600000,
+  "timeoutBlocks": 1000,
+  "confirmations": 2
+}

@@ -1,0 +1,3 @@
+mutation ConfirmPaymentTransferred($paymentReference: String!) {
+    confirmPaymentTransferred(paymentReference: $paymentReference)
+  }

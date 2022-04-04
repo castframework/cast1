@@ -1,0 +1,6 @@
+node_modules/
+dist/
+reports/
+.scannerwork/
+tsconfig.tsbuildinfo
+tsconfig.lint.tsbuildinfo

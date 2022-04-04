@@ -1,0 +1,147 @@
+type SettlementTransactionParticipantAddresses {
+  securityDeliverer: String!
+  securityReceiver: String!
+  securityIssuer: String!
+  settler: String!
+  registrar: String!
+}
+
+type LightSettlementTransaction {
+  id: String!
+  participantAccountNumbers: SettlementTransactionParticipantAddresses!
+}
+
+type LedgerBlockInfo {
+  ledger: Ledger!
+  blockNumber: Float!
+  blockHash: String!
+}
+
+enum Ledger {
+  ETHEREUM
+  TEZOS
+}
+
+type STRSettlementTransaction {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  movements: [Movement!]!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+}
+
+enum SettlementTransactionType {
+  DVP
+  PFOD
+  DWP
+  FOP
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum Currency {
+  EUR
+}
+
+enum SettlementModel {
+  DIRECT
+  INDIRECT
+}
+
+type Movement {
+  id: String!
+  settlementTransactions: [STRSettlementTransaction!]!
+  movementType: MovementType!
+  senderAccountNumber: String!
+  receiverAccountNumber: String!
+  paymentReference: String
+}
+
+enum MovementType {
+  CASH
+  TOKEN
+}
+
+type TransactionDetails {
+  to: String!
+  methodName: String
+  methodParameters: String
+  value: Float
+}
+
+type BlockchainEvent {
+  eventName: String!
+  smartContractAddress: String!
+  blockNumber: Float!
+  blockHash: String!
+  transactionId: String!
+  payload: String!
+}
+
+type Query {
+  getSettlementTransactions(instrumentAddress: String): [STRSettlementTransaction!]
+  getSettlementTransactionByTimeFrame(end: DateTime!, begin: DateTime!): [STRSettlementTransaction!]!
+  getSettlementTransaction(id: String!): STRSettlementTransaction
+  getSettlementTransactionsByPaymentReference(paymentReference: String): [STRSettlementTransaction!]
+  getLedgerForTransaction(transactionId: String!): Ledger
+  getLedgerForPaymentReference(paymentReference: String!): Ledger
+}
+
+type Mutation {
+  createSettlementTransaction(settlementTransaction: CreateOracleSettlementTransactionInput!): STRSettlementTransaction
+}
+
+input CreateOracleSettlementTransactionInput {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+  movements: [CreateMovementInput!]!
+}
+
+input CreateMovementInput {
+  id: String!
+  movementType: MovementType!
+  senderAccountNumber: String!
+  receiverAccountNumber: String!
+  paymentReference: String
+}
