@@ -23,6 +23,7 @@ See [packages documentation](./packages/cast)
 - [docker](https://docs.docker.com/get-docker/)
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- build-essential (apt-get install build-essential)
 
 ## Local Install
 
