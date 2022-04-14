@@ -3,6 +3,28 @@
     "sourceRoot": "packages/cast/cast-eth-v1/src",
     "exclude": [],
     "projectType": "library",
-    "targets": {},
+    "targets": {
+        "distribute": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run distribute -- --network-folder={args.network-folder} --amount 100;",
+                "cwd": "packages/cast/cast-eth-v1"
+            }
+        },
+        "build": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run build",
+                "cwd": "packages/cast/cast-eth-v1"
+            }
+        },
+        "deploy": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run deploy -- --network-folder={args.network-folder}",
+                "cwd": "packages/cast/cast-eth-v1"
+            }
+        }
+    },
     "tags": []
 }

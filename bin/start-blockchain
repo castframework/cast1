@@ -8,7 +8,7 @@ PRJT_ROOT="$(
     pwd -P | grep -o '^.*/'
 )"
 
-$PRJT_ROOT/bin/start-blockchain
+echo "🛠 Starting local-blockchain"
+echo $CONTAINER_COMPOSE_CMD
+${CONTAINER_COMPOSE_CMD:-docker-compose} up -d ganache flextesa
 
-$PRJT_ROOT/bin/iter-all
-${CONTAINER_COMPOSE_CMD:-docker-compose} up -d

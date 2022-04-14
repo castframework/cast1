@@ -38,7 +38,10 @@ while :; do
   esac
 done
 
-PRJT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P | grep -o '^.*/' )"
+PRJT_ROOT="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1
+  pwd -P | grep -o '^.*/'
+)"
 
 NETWORK_FOLDER_DEFAULT="${PRJT_ROOT}/../../../../networks/local"
 NETWORK_FOLDER=$(realpath "${network_folder:-$NETWORK_FOLDER_DEFAULT}")
@@ -67,61 +70,45 @@ echo "✅ Config files found"
 ## Compile and Deploy factory
 echo "🛠 Building contracts"
 
-if npm run build
-then
-    echo "✅ Contracts built"
+if nx run cast-eth-v1:build --args="--network-folder=${NETWORK_FOLDER}"; then
+  echo "✅ Contracts built"
 else
-    echo "💥 Error during contract build"
-    exit 1
+  echo "💥 Error during contract build"
+  exit 1
 fi
 
 echo "🛠 Distribute Eth if needed "
 
-# Load ganache address
-set -a
-. ./../../../.env
-set +a
-
-if npm run distribute -- --network-folder="$NETWORK_FOLDER" --amount 100
-then
-    echo "✅ Eth distributed"
+if nx run cast-eth-v1:distribute --args="--network-folder=${NETWORK_FOLDER}"; then
+  echo "✅ Eth distributed"
 else
-    echo "💥 Error distributing Eth"
-    exit 1
+  echo "💥 Error distributing Eth"
+  exit 1
 fi
 
 echo "🛠 Deploying contracts"
 
-
-if npm run deploy -- --network-folder "$NETWORK_FOLDER"
-then
-    echo "✅ Contracts deployed"
+if nx run cast-eth-v1:deploy --args="--network-folder=${NETWORK_FOLDER}"; then
+  echo "✅ Contracts deployed"
 else
-    echo "💥 Error during contract deployment"
-    exit 1
+  echo "💥 Error during contract deployment"
+  exit 1
 fi
-
 
 echo "🛠 Extracting abi"
 
-
-if npm run extract:abi
-then
-    echo "✅ Abi extracted"
+if npm run extract:abi; then
+  echo "✅ Abi extracted"
 else
-    echo "💥 Error during abi extraction"
-    exit 1
+  echo "💥 Error during abi extraction"
+  exit 1
 fi
-
 
 echo "🛠 Extracting contracts addresses"
 
-
-if npm run extract:last-deploy -- --network-folder "$NETWORK_FOLDER"
-then
-    echo "✅ Contract addresses extracted"
+if npm run extract:last-deploy -- --network-folder "$NETWORK_FOLDER"; then
+  echo "✅ Contract addresses extracted"
 else
-    echo "💥 Error during contract addresses extraction"
-    exit 1
+  echo "💥 Error during contract addresses extraction"
+  exit 1
 fi
-

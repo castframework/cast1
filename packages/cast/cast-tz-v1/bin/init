@@ -71,7 +71,7 @@ echo "✅ Config files found"
 
 echo "🛠 Building contracts"
 
-if npm run build; then
+if nx run cast-tz-v1:build; then
   echo "✅ Contracts built"
 else
   echo "💥 Error during contract build"
@@ -80,7 +80,7 @@ fi
 
 echo "🛠 Distribute Tez if needed "
 
-if npm run distribute -- --network-folder="$NETWORK_FOLDER" --amount 100; then
+if nx run cast-tz-v1:distribute --args="--network-folder=${NETWORK_FOLDER}"; then
   echo "✅ Tez distributed"
 else
   echo "💥 Error distributing tez"
@@ -89,7 +89,7 @@ fi
 
 echo "🛠 Deploying contracts"
 
-if npm run originate -- --network-folder="$NETWORK_FOLDER"; then
+if nx run cast-tz-v1:deploy --args="--network-folder=${NETWORK_FOLDER}" ; then
   echo "✅ Contracts deployed"
 else
   echo "💥 Error during contract deployment"

@@ -58,9 +58,29 @@ if (typeof networkFolder !== 'string') {
     throw Error(`Host property for network ${network} must be set`);
   }
 
+  const coinbaseFilePath = `${networkFolder}/ethereum/coinbase.json`;
+  let coinbaseFile;
+  try {
+    coinbaseFile = fs.readFileSync(coinbaseFilePath, 'utf8');
+  } catch (e) {
+    console.error(
+      `Could not read coinbase.json file for network: ${e.toString()}`,
+    );
+    throw e;
+  }
+
+  try {
+    coinbasePrivateKey = JSON.parse(coinbaseFile);
+  } catch (e) {
+    console.error(
+      `Could not parse coinbase.json file for network: ${e.toString()}`,
+    );
+    throw e;
+  }
+
   provider = () => new HDWalletProvider(
         {
-          privateKeys: [...Object.values(keys), process.env.GANACHE_PRIV],
+          privateKeys: [...Object.values(keys), coinbasePrivateKey],
           provider: networkObject.host,
           addressIndex: 0,
           numberOfAddresses: 15          

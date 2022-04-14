@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+PRJT_ROOT="$(
+    cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1
+    pwd -P | grep -o '^.*/'
+)"
+
+CCR=${PRJT_ROOT}bin
+
+CONFIRM_WORD=$(shuf -n1 /usr/share/dict/words)
+read -r -p "[Hard-rest]Any uncommited progress will be lost, ignored and untrack files included ! Type [${CONFIRM_WORD}] to proceed : " UserConfirmation
+case $UserConfirmation in
+      $CONFIRM_WORD)
+            echo "Proceeding"
+            ;;
+      *)
+            echo "Aborting..."
+            exit 1
+            ;;
+esac
+
+nx reset
+nx run-many --target=clean --all --maxParallel
+${CCR}/stop
+git clean -fdx
+git restore .

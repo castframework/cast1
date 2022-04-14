@@ -8,6 +8,8 @@ PRJT_ROOT="$(
     pwd -P | grep -o '^.*/'
 )"
 
+CCR=${PRJT_ROOT}bin
+
 mkdir -p "${PRJT_ROOT}/logs"
 
 # Install lerna if needed
@@ -26,4 +28,11 @@ fi
 source $NVM_DIR/nvm.sh
 nvm use
 lerna bootstrap --strict --hoist
-${PRJT_ROOT}bin/build
+
+${CCR}/keyset-maker
+
+${CCR}/start-blockchain
+
+${CCR}/iter-all
+
+${CCR}/build

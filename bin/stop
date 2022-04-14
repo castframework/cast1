@@ -3,4 +3,5 @@
 set -e
 set -o pipefail
 
-docker-compose down -v
+nx reset
+${CONTAINER_COMPOSE_CMD:-docker-compose} down -v

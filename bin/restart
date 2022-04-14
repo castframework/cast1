@@ -6,7 +6,8 @@ set -o pipefail
 PRJT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P | grep -o '^.*/' )"
 
 # Remove all services but blockchains
-docker-compose rm -s -f postgres-str fro fio1 fso str
+${CONTAINER_COMPOSE_CMD:-docker-compose} rm -s -f postgres-api postgres-str api fro fio1 fso mfmo str mfbo1 www mcpu hasura
 
 # Start all services
-docker-compose up -d
+${CONTAINER_COMPOSE_CMD:-docker-compose} up -d
+$PRJT_ROOT/bin/wait-for http://localhost:8080/healthz -- ${CONTAINER_COMPOSE_CMD:-docker-compose} exec hasura hasura-cli seed apply --database-name default --disable-interactive

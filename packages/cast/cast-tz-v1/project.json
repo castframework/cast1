@@ -2,6 +2,28 @@
     "root": "packages/cast/cast-tz-v1",
     "sourceRoot": "packages/cast/cast-tz-v1/src",
     "projectType": "library",
-    "targets": {},
+    "targets": {
+        "distribute": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run distribute -- --network-folder={args.network-folder} --amount 100;",
+                "cwd": "packages/cast/cast-tz-v1"
+            }
+        },
+        "build": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run build",
+                "cwd": "packages/cast/cast-tz-v1"
+            }
+        },
+        "deploy": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm run originate -- --network-folder={args.network-folder}",
+                "cwd": "packages/cast/cast-tz-v1"
+            }
+        }
+    },
     "tags": []
 }

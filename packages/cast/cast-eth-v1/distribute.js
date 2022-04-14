@@ -9,7 +9,6 @@ module.exports = async function (callback) {
 
   async function startGiveMoney() {
     const argv = minimist(process.argv.slice(2));
-    const ganacheAddress = process.env.GANACHE_ADDRESS;
     const networkFolder = argv['network-folder'] ?? process.env['NETWORK_FOLDER'];
     const amount = argv['amount'];
   
@@ -30,6 +29,7 @@ module.exports = async function (callback) {
     }
 
     let keys = {};
+    let coinbase = undefined;
     if (typeof networkFolder !== 'string') {
       console.error('No network folder set');
       process.exit(1)
@@ -76,8 +76,35 @@ module.exports = async function (callback) {
       process.exit(1)
     }
 
+    const coinbaseFilePath = `${networkFolder}/ethereum/coinbase.json`;
+    let coinbaseFile;
+    try {
+      coinbaseFile = fs.readFileSync(coinbaseFilePath, 'utf8');
+    } catch (e) {
+      console.error(
+        `Could not read coinbase.json file for network: ${e.toString()}`,
+      );
+      process.exit(1)
+    }
+
+    try {
+      coinbase = JSON.parse(coinbaseFile);
+    } catch (e) {
+      console.error(
+        `Could not parse coinbase.json file for network: ${e.toString()}`,
+      );
+      process.exit(1)
+    };
+
+
     const giveThreshold = Math.round(amount * 0.8); // Do not give ETH if account have at least this amount
     console.log(`Threshold is ${giveThreshold} ETH. Accounts with less than ${giveThreshold} ETH will not receive anything.`);
+
+    const coinbaseAddress = utils.getEthAddress(coinbase);
+    const coinbaseBalance = await web3.eth.getBalance(coinbaseAddress);
+    console.log(`Coinbase address: ${coinbaseAddress}`);
+    console.log(`Current coinbase balance: ${web3.utils.fromWei(coinbaseBalance, 'ether')} ETH`);
+
 
     try {
       for (const [account, key] of Object.entries(keys)){
@@ -102,7 +129,7 @@ module.exports = async function (callback) {
         );
 
         await web3.eth.sendTransaction({
-          from: ganacheAddress,
+          from: coinbaseAddress,
           to: ethAddress,
           value: web3.utils.toWei(amountToSend.toString(), 'ether'),
         });
@@ -117,6 +144,9 @@ module.exports = async function (callback) {
       console.log(err)
       process.exit(1)
     }
+
+    const coinbaseFinalBalance = await web3.eth.getBalance(coinbaseAddress);
+    console.log(`Final coinbase balance: ${web3.utils.fromWei(coinbaseFinalBalance, 'ether')} ETH`);
 
     callback();
   }
