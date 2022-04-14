@@ -1,10 +1,10 @@
-# Emitting a Bond using Forge Oracles
+# Emitting a Bond using Financial Oracles
 
 This step by step guide will go through the bond emission process.
 At the end of this tutorial you will have emitted and settled a new Forge Bond on
 your local environnement.
 
-For this you need to interact with two components : the <span class="froColor">[Forge Registrar Oracle (FRO)](/modules/explorerFRO)</span> and the <span class="fsoColor">[Forge Settlement Oracle (FSO)](/modules/explorerFSO)</span>.
+For this you need to interact with two components : the <span class="froColor">[Financial Registrar Oracle (FRO)](/modules/explorerFRO)</span> and the <span class="fsoColor">[Financial Settlement Oracle (FSO)](/modules/explorerFSO)</span>.
 
 You will find, along these steps, interactive explorers preloaded with sample requests.
 If you wish, standalone playgrounds for the <span class="froColor">[FRO](http://localhost:6661/graphql)</span> and <span class="fsoColor">[FSO](http://localhost:6663/graphql)</span> are also available.
@@ -13,7 +13,7 @@ If you wish, standalone playgrounds for the <span class="froColor">[FRO](http://
 
 First of all, you will need to subscribe to specific events on the blockchain.
 The different actors use these events to coordinate themselves.
-Any Forge Oracle (FO) can do this. For this tutorial, we will be using the <span class="froColor">FRO</span>.
+Any Financial Oracle (FO) can do this. For this tutorial, we will be using the <span class="froColor">FRO</span>.
 
 ### Registry Notification
 

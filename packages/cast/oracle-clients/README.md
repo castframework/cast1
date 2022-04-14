@@ -1,6 +1,6 @@
-# Forge Oracle
+# CAST Oracles
 
-NodeJS Oracle to interact with Forge Smart Contracts on Blockchains. Only Ethereum is supported at the moment.  
+NodeJS Oracle to interact with Smart Contracts on Blockchains. Only Ethereum is supported at the moment.  
 It can:
 - Listen to blockchain events
 - Send transactions to blockchain  

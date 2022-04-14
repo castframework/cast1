@@ -4,10 +4,10 @@
 
 # Description
 
-The Forge platform is composed of market standards designed for digital blockchain-based securities. We aspire to promote innovation in capital markets with a set of open standards and technologies anyone can use to develop mutually compatible and interoperable digital financial services.
+The CAST framework is composed of market standards designed for digital blockchain-based securities. We aspire to promote innovation in capital markets with a set of open standards and technologies anyone can use to develop mutually compatible and interoperable digital financial services.
 
 
-The Forge platform enables the creation of an integrated financial ecosystem across blockchain-native and legacy systems. It is intended to give issuers, investors, financial institutions and other service providers easy, trustworthy and seamless access to the developing market of tokenized securities. Minimizing integration risk will give actors throughout the financial industry the ability to transition to a new model for financial markets without prohibitive cost overheads.
+The CAST frameowkr enables the creation of an integrated financial ecosystem across blockchain-native and legacy systems. It is intended to give issuers, investors, financial institutions and other service providers easy, trustworthy and seamless access to the developing market of tokenized securities. Minimizing integration risk will give actors throughout the financial industry the ability to transition to a new model for financial markets without prohibitive cost overheads.
 
 This is done via the [Oracles](./packages/cast/oracles/) in the Cast Framework. Oracles are entities which communicated with the blockchain.
 
@@ -30,13 +30,13 @@ See [packages documentation](./packages/cast)
 
 ```shell
 git clone git@github.com:castframework/cast1.git
-cd forge-platform
+cd cast1
 make init
 make start
 ```
 
 The `init` script compiles the different packages and hoists the dependencies to the root of the project.
-The `start` script generates an address for Ganache to use and launches Ganache and Flextesa, the local blockchain simulators for Ethereum and Tezos, respectively. It then migrates the Forge Smart Contracts and performs initial transfers in order to set up a basic environment with the necessary entities and funds (settler, issuer, registrar, investor). The docker containers for the CAST Framework are then launched.
+The `start` script generates an address for Ganache to use and launches Ganache and Flextesa, the local blockchain simulators for Ethereum and Tezos, respectively. It then migrates the Smart Contracts and performs initial transfers in order to set up a basic environment with the necessary entities and funds (settler, issuer, registrar, investor). The docker containers for the CAST Framework are then launched.
 
 ## CAST Oracle Tutorial
 

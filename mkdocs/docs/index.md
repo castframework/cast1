@@ -1,14 +1,14 @@
-# Forge Oracle API Tutorial
+# Financial Oracle API Tutorial
 
 ## Introduction
 
-Forge is a platform and ecosystem created by SG FORGE, the Blockchain start-up of Société Générale Group.
+The CAST framework is a platform and ecosystem created by SG FORGE, the Blockchain start-up of Société Générale Group.
 
-Forge rose from the need to have a complete Blockchain financial management platform that gives equal importance to Legal, Operational and Technical aspects.
+The CAST framework rose from the need to have a complete Blockchain financial management platform that gives equal importance to Legal, Operational and Technical aspects.
 
 To achieve this need it is very clear that creating yet another lone platform is not the goal.
 
-Forge wants to onboard as many ecosystem members as possible by publishing open-source protocols, components and tools to encourage adoption.
+SG FORGE wants to onboard as many ecosystem members as possible by publishing open-source protocols, components and tools to encourage adoption.
 
 Hence, even if the open-sourcing process is still ongoing, we are ready to start sharing the API.
 
@@ -25,9 +25,9 @@ The business instructions would be performed on a private Ethereum chain so the 
 
 We plan to deploy a private Blockchain explorer in the future.
 
-## Description of the Forge ecosystem
+## Description of the CAST Framework
 
-![Forge ecosystem componenets](./img/forge-ecosystem-components.png)
+![CAST Framework componenets](./img/forge-ecosystem-components.png)
 
 As described in this diagram, the basic actor types are:
 

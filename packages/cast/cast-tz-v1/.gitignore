@@ -1,4 +1,9 @@
 /node_modules
+/src/bond/**/dist/
+/src/emtn/**/dist/
+/src/EventSink/dist/
+/src/ForgeInstrumentRegistry/dist/
+/src/Instrument/dist/
 *.smlse
 *.tz
 contract_types.sp
