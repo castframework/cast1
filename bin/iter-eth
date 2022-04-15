@@ -59,17 +59,6 @@ echo "🛠 Exporting abi to cast-interface-v1"
 
 cd "$PRJT_ROOT" || exit 1
 
-
-if cp -rf "${SC}"/dist/abi/* "${BA_PRO}"/src/blockchainSpecific/eth/abi 1> $LOG_FILE 2> $ERROR_FILE
-then
-    echo "✅ Abi exported to cast-interface-v1"
-else
-    echo "💥 Error during api export to cast-interface-v1"
-    exit 1
-fi
-
-## Build blockchain abstract
-
 echo "🛠 Rebuilding cast-interface-v1"
 
 cd "$PRJT_ROOT" || exit 1

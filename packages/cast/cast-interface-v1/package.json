@@ -2,6 +2,7 @@
   "author": "Société Générale Forge",
   "description": "Interface with the blockchain",
   "dependencies": {
+    "@castframework/cast-eth-v1": "1.0.0",
     "@castframework/transaction-manager": "1.0.2-alpha.3",
     "@castframework/blockchain-driver-eth": "1.0.2-alpha.3",
     "@castframework/blockchain-driver-tz": "1.0.2-alpha.3",

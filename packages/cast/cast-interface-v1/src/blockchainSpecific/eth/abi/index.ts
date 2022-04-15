@@ -1,6 +1,6 @@
-import ForgeFactory = require('./ForgeBondFactory.json');
-import ForgeBond = require('./ForgeBond.json');
-import InstrumentRegistry = require('./ForgeInstrumentRegistry.json');
+import ForgeFactory = require('@castframework/cast-eth-v1/dist/abi/ForgeBondFactory.json');
+import ForgeBond = require('@castframework/cast-eth-v1/dist/abi/ForgeBond.json');
+import InstrumentRegistry = require('@castframework/cast-eth-v1/dist/abi/ForgeInstrumentRegistry.json');
 import { ForgeContractType } from '../../../types';
 
 type ContractTypeMapping = {

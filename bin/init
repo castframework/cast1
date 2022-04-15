@@ -31,8 +31,4 @@ lerna bootstrap --strict --hoist
 
 ${CCR}/keyset-maker
 
-${CCR}/start-blockchain
-
-${CCR}/iter-all
-
 ${CCR}/build
