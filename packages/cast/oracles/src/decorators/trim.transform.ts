@@ -1,7 +1,7 @@
 'use strict';
 
 import { Transform, TransformFnParams } from 'class-transformer';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 /**
  * @description trim spaces from start and end, replace multiple spaces with one.

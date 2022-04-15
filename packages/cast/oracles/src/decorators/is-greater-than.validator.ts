@@ -3,7 +3,7 @@ import {
   ValidationArguments,
   ValidationOptions,
 } from 'class-validator';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 /**
  * @example

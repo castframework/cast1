@@ -30,7 +30,8 @@ module.exports = {
     ],
     '@typescript-eslint/no-parameter-properties': 0,
     "@typescript-eslint/no-floating-promises": ["error"],
-    "import/no-extraneous-dependencies" : "error"
+    "import/no-extraneous-dependencies" : "error",
+    "import/namespace": 1,
   },
   settings: {
     'import/resolver': {
