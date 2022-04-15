@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 export class UtilsService {
   /**

@@ -1,7 +1,7 @@
 import { getLogger, Logger } from '../utils/logger';
 import { ValidationError } from 'class-validator';
 import { Response } from 'express';
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 import {
   ArgumentsHost,

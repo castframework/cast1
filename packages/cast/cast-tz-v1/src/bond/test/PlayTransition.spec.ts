@@ -6,7 +6,6 @@ import {
 import { importKey } from '@taquito/signer';
 import { assert, expect } from 'chai';
 import { BigNumber } from 'bignumber.js';
-const faker = require('faker');
 import {
   extractAddressFromSecret,
   getNetworkConfig,

@@ -99,7 +99,8 @@ export class InitiateRedemptionInputHelpers {
     return {
       settlementDate: faker.date.soon(),
       instrumentAddress: faker.finance.ethereumAddress(),
-      issuerAddresses: ParticipantAdressesHelpers.givenParticipantAdressesWithoutDelivery(),
+      issuerAddresses:
+        ParticipantAdressesHelpers.givenParticipantAdressesWithoutDelivery(),
       participantsAddresses: new Array(nParticipants)
         .fill(undefined)
         .map(() => ParticipantAdressesHelpers.givenParticipantAdresses()),

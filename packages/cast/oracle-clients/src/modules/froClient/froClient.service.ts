@@ -371,7 +371,7 @@ export class FroClientService implements OnModuleDestroy {
       this.clientName,
       this,
     );
-    
+
     logger.debug(`Response from FRO`, JSON.stringify(response));
 
     if (

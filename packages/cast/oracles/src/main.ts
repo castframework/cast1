@@ -71,9 +71,11 @@ async function bootstrap(): Promise<void> {
   app.set('query parser', (str: string) =>
     parse(str, { arrayLimit: Infinity }),
   );
-  app.use(helmet({
+  app.use(
+    helmet({
       contentSecurityPolicy: false,
-  }));
+    }),
+  );
   app.use(compression());
   app.get(ShutdownService).subscribeToShutdown(() => app.close());
 

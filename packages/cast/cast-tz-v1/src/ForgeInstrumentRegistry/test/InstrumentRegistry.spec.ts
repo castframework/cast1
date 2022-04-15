@@ -16,15 +16,13 @@ import { assert, expect } from 'chai';
 import * as chaiAsPromised from 'chai-as-promised';
 
 chai.use(chaiAsPromised);
-const faker = require('faker');
+import faker = require('faker');
 
 describe('ForgeInstrumentRegistry', function () {
   let instrumentRegistry;
   let Tezos: TezosToolkit;
   const factoryAddress = 'KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9';
   let networkConfig: NetworkConfig;
-
-
 
   before(async function () {
     const argv = minimist<{ ['network-folder']: string }>(
@@ -44,13 +42,13 @@ describe('ForgeInstrumentRegistry', function () {
     );
 
     // To test instrument registry methods, we use the registrar address as a factory address
-    const op = await instrumentRegistry.methods.authorizeFactory('Registrar', registrarAddress)
+    const op = await instrumentRegistry.methods
+      .authorizeFactory('Registrar', registrarAddress)
       .send();
 
     await op
       .confirmation()
       .catch((error) => console.log(JSON.stringify(error)));
-
   });
 
   it('Should authorize a new Factory', async function () {

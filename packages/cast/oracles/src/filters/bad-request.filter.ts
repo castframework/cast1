@@ -1,7 +1,7 @@
 import { getLogger, Logger } from '../utils/logger';
 import { ValidationError } from 'class-validator';
 import { Response } from 'express';
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 import {
   ArgumentsHost,
@@ -55,7 +55,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         }
       }
       if (!_.isEmpty(validationError.children)) {
-        this._validationFilter(validationError.children??[]);
+        this._validationFilter(validationError.children ?? []);
       }
     }
   }

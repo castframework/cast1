@@ -13,7 +13,7 @@ import { expect } from 'chai';
 import * as chaiAsPromised from 'chai-as-promised';
 
 chai.use(chaiAsPromised);
-const faker = require('faker');
+import faker = require('faker');
 
 const tokenArgs = {
   registrar: 'tz1djN1zPWUYpanMS1YhKJ2EmFSYs6qjf4bW',
@@ -65,7 +65,6 @@ describe('ForgeToken: authorizeOperator & revokeOperatorAuthozization', function
         .send();
 
       await createForgeTokenOp.confirmation();
-
 
       const instrumentRegistryContract = await Tezos.contract.at(
         networkConfig.contractConfig.REGISTRY,
@@ -119,8 +118,4 @@ describe('ForgeToken: authorizeOperator & revokeOperatorAuthozization', function
       /.*undefined operator*/,
     );
   });
-
-  it('should name a new operator with his role', async function () {});
-
-  it('should revoke operator authorization', async function () {});
 });

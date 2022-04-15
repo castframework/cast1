@@ -12,7 +12,7 @@ import { expect } from 'chai';
 import * as chaiAsPromised from 'chai-as-promised';
 
 chai.use(chaiAsPromised);
-const faker = require('faker');
+import faker = require('faker');
 
 const tokenArgs = {
   registrar: 'tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6',
@@ -142,8 +142,4 @@ describe('ForgeToken: authorizeOperator & revokeOperatorAuthozization', function
       /.*undefined operator*/,
     );
   });
-
-  it('should name a new operator with his role', async function () {});
-
-  it('should revoke operator authorization', async function () {});
 });

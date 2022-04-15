@@ -6,7 +6,7 @@ import {
 import { importKey } from '@taquito/signer';
 import { assert, expect } from 'chai';
 import { BigNumber } from 'bignumber.js';
-const faker = require('faker');
+
 import {
   extractAddressFromSecret,
   getNetworkConfig,
@@ -47,7 +47,6 @@ describe('ForgeToken entrypoints testing', function () {
     networkConfig = getNetworkConfig(networkFolder);
     Tezos = await getTezosToolkitRegistrar(networkConfig);
 
-
     const instrumentRegistry = await Tezos.contract.at(
       networkConfig.contractConfig.REGISTRY,
     );
@@ -57,7 +56,8 @@ describe('ForgeToken entrypoints testing', function () {
     );
 
     // To test instrument registry methods, we use the registrar address as a factory address
-    const op = await instrumentRegistry.methods.authorizeFactory('Registrar', registrarAddress)
+    const op = await instrumentRegistry.methods
+      .authorizeFactory('Registrar', registrarAddress)
       .send();
 
     await op

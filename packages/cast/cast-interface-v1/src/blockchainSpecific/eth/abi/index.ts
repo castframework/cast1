@@ -14,6 +14,6 @@ export const AbiMapping: ContractTypeMapping = {
   [ForgeContractType.INSTRUMENT_REGISTRY]: InstrumentRegistry,
 };
 
-export function getAbi(type: ForgeContractType ): any {
+export function getAbi(type: ForgeContractType): any {
   return AbiMapping[type];
 }

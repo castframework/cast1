@@ -16,7 +16,7 @@ import {
 import { PositionService } from '../../../src/modules/fxo/position/position.service';
 import { StrClientService } from '@castframework/oracle-clients';
 import { FroRedemptionService } from '../../../src/modules/fro/fro.redemption.service';
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { ForgePubSub } from '../../../src/utils/PubSub.wrapper';
 import * as chai from 'chai';
 import { expect } from 'chai';

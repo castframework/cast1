@@ -16,8 +16,8 @@ import {
 import { CreateForgeBondParams, ForgeBond, ForgeBondFactory } from '../src';
 import { first, multicast } from 'rxjs/operators';
 import { ConnectableObservable, Observable, ReplaySubject } from 'rxjs';
-import ForgeBondFactoryABI from '../src/blockchainSpecific/eth/abi/ForgeBondFactory.json';
-import ForgeBondABI from '../src/blockchainSpecific/eth/abi/ForgeBond.json';
+import ForgeBondFactoryABI from '@castframework/cast-eth-v1/dist/abi/ForgeBondFactory.json';
+import ForgeBondABI from '@castframework/cast-eth-v1/dist/abi/ForgeBond.json';
 import BigNumber from 'bignumber.js';
 import uuidToHex = require('uuid-to-hex');
 const forgeBondFactoryAbi = ForgeBondFactoryABI as unknown as AbiItem;

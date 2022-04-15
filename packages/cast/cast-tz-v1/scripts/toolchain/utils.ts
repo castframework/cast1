@@ -14,7 +14,9 @@ import { smpLog } from './logger';
 import { ls } from 'shelljs';
 import * as bs58check from 'bs58check';
 import * as blake from 'blakejs';
-const Client = require('kubernetes-client').Client;
+import KubeClient = require('kubernetes-client');
+
+const Client = (KubeClient as any).Client;
 
 export async function getEnvironmentConfigurationFromCluster(): Promise<EnvironmentConfig> {
   const client = new Client({ version: '1.13' });
