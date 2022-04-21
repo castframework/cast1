@@ -1,6 +1,6 @@
 # Features
 
-NodeJS Oracle interacts with Forge Smart Contracts on Blockchains. Only Ethereum and Tezos are supported at the moment.  
+NodeJS Oracle interacts with CAST Smart Contracts on Blockchains. Only Ethereum and Tezos are supported at the moment.  
 It can:
 - Listen to blockchain events
 - Send transactions to a blockchain  
@@ -9,9 +9,9 @@ This project leverage the power of [NestJS](https://docs.nestjs.com/) to expose 
 
 # Descriptions
 
-- Forge Registration Oracle (FRO): designed to start the process of an issuance, declaration of investors and interests, creation of instruments, and many more procedures. At the beginning of an issuance (bond or EMNT), issuers and investors communicate their parameters to the registrar, who then sends that information to the blockchain via the FRO. This means that the FRO launches the issuance, declares the issuer and each investor, creates the instrument, and even generates the trades and settlement transactions.
-- Forge Investment Oracle (FIO): designed to be a listener for investors and issuers on the blockchain. This is the way in which these parties can receive information on the transactions which concern them. This oracle can be used as a source of information in order to receive accurate information on transactions.
-- Forge Settlement Oracle (FSO): designed to provide important DvP (Delivery vs Payment) functionalities when the issuer and investor are prepared to complete the trade. This oracle can be connected to an outside entity to extend payment options.
+- Financial Registration Oracle (FRO): designed to start the process of an issuance, declaration of investors and interests, creation of instruments, and many more procedures. At the beginning of an issuance (bond or EMNT), issuers and investors communicate their parameters to the registrar, who then sends that information to the blockchain via the FRO. This means that the FRO launches the issuance, declares the issuer and each investor, creates the instrument, and even generates the trades and settlement transactions.
+- Financial Investment Oracle (FIO): designed to be a listener for investors and issuers on the blockchain. This is the way in which these parties can receive information on the transactions which concern them. This oracle can be used as a source of information in order to receive accurate information on transactions.
+- Financial Settlement Oracle (FSO): designed to provide important DvP (Delivery vs Payment) functionalities when the issuer and investor are prepared to complete the trade. This oracle can be connected to an outside entity to extend payment options.
 
 Each oracle has a dedicated GraphQL Playground (/graphql) which can be used as an interface for testing. See the `docker-compose.yml` file for the port number of each site as created on the local environment.
 

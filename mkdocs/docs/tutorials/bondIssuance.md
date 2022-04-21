@@ -1,7 +1,7 @@
 # Emitting a Bond using Financial Oracles
 
 This step by step guide will go through the bond emission process.
-At the end of this tutorial you will have emitted and settled a new Forge Bond on
+At the end of this tutorial you will have issued and settled a new Forge Bond on
 your local environnement.
 
 For this you need to interact with two components : the <span class="froColor">[Financial Registrar Oracle (FRO)](/modules/explorerFRO)</span> and the <span class="fsoColor">[Financial Settlement Oracle (FSO)](/modules/explorerFSO)</span>.
@@ -17,7 +17,7 @@ Any Financial Oracle (FO) can do this. For this tutorial, we will be using the <
 
 ### Registry Notification
 
-Anytime a new contract is emitted by a factory, you will receive a notification here.
+Anytime a new contract is issued by a factory, you will receive a notification here.
 
 <div class="froBorder" >
     <div class="explorer" id="froSubRegistryNotification"></div>
@@ -97,7 +97,7 @@ Keep that address, it represents your new Bond.
 
 ## Subscribing to the bond
 
-Now that the bond is emitted, investors can subscribe.
+Now that the bond is issued, investors can subscribe.
 For this example, we are using a preconfigured address as an investor.
 
 We now need to build a subscription object.
@@ -157,7 +157,7 @@ Once the mutation is executed, you should receive a `ConfirmPaymentTransferred` 
     <div class="explorer" id="fsoConfirmPaymentTransferred"></div>
 </div>
 
-**Congratulations** You have just emitted and subscribed to a Forge Bond !
+**Congratulations** You have just issued and subscribed to a Forge Bond !
 
 <script>
     const froEndPoint = 'http://localhost:6661/graphql';

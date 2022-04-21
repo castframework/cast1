@@ -1,7 +1,9 @@
 env
 ethereum/coinbase.json
+ethereum/contracts.json
 ethereum/keys.json
 mnemonic.json
 tezos/coinbase.json
 tezos/keys.json
+tezos/contracts.json
 

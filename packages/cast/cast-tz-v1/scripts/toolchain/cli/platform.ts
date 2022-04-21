@@ -22,7 +22,7 @@ async function dothestuff(): Promise<void> {
   const sequence = getObjectFromFile(originationFile);
 
   const context = {
-    ADMIN: extractAddressFromSecret(networkConfig.keysConfig.SG_FORGE),
+    ADMIN: extractAddressFromSecret(networkConfig.keysConfig.CAST_AGENT),
     REGISTRAR: extractAddressFromSecret(networkConfig.keysConfig.REGISTRAR),
   };
 

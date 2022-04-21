@@ -1,4 +1,4 @@
-import { AuthReport, ForgeJws } from './types';
+import { AuthReport, CASTJws } from './types';
 import { decodeJws, trimJwsSignature, encodeUnsignedJws } from './jws';
 import { getIss, getAlg, isTokenExpired } from './tokenUtils';
 
@@ -39,7 +39,7 @@ export function authenticate(encodedJws: string): AuthReport {
   }
 }
 
-export function signJws(claim: ForgeJws, secretKey: string): string {
+export function signJws(claim: CASTJws, secretKey: string): string {
   const toSign = encodeUnsignedJws(claim);
   const alg = getAlg(claim);
   const { sign } = algRegister[alg];

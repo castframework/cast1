@@ -1,5 +1,5 @@
 import { Base64 } from 'js-base64';
-import { jwsData, jwsHeader, ForgeJws } from './types';
+import { jwsData, jwsHeader, CASTJws } from './types';
 
 export function isJwsHeader(header: any): header is jwsHeader {
   return header.alg && header.typ;
@@ -19,7 +19,7 @@ export function constructJws(
   header: any,
   data: any,
   signature?: string,
-): ForgeJws {
+): CASTJws {
   if (!isJwsHeader(header)) {
     throw new Error('Header is not a valid jws header');
   }
@@ -47,13 +47,13 @@ export function base64DecodeToJS(input: string): any {
   return JSON.parse(Base64.decode(input));
 }
 
-export function encodeUnsignedJws(jws: ForgeJws): string {
+export function encodeUnsignedJws(jws: CASTJws): string {
   const { header, data } = jws;
 
   return `${base64EncodeFromJS(header)}.${base64EncodeFromJS(data)}`;
 }
 
-export function decodeJws(jws: string): ForgeJws {
+export function decodeJws(jws: string): CASTJws {
   const [_header, _data, signature, ...rest] = jws.split('.');
 
   if (rest.length !== 0) {
@@ -75,7 +75,7 @@ export function generateNewJws(
   aud: string,
   alg: jwsHeader['alg'],
   expIn = 5000,
-): ForgeJws {
+): CASTJws {
   const header = {
     alg,
     typ: 'JWT',

@@ -1,17 +1,17 @@
-import { ForgeJws, jwsHeader } from './types';
+import { CASTJws, jwsHeader } from './types';
 
-export function checkSender(sender: string, jws: ForgeJws): boolean {
+export function checkSender(sender: string, jws: CASTJws): boolean {
   return sender === jws.data.iss;
 }
 
-export function getIss(jws: ForgeJws): string {
+export function getIss(jws: CASTJws): string {
   return jws.data.iss;
 }
 
-export function getAlg(jws: ForgeJws): jwsHeader['alg'] {
+export function getAlg(jws: CASTJws): jwsHeader['alg'] {
   return jws.header.alg;
 }
-export function isTokenExpired(jws: ForgeJws): boolean {
+export function isTokenExpired(jws: CASTJws): boolean {
   const now = Date.now();
 
   if (now < jws.data.iat) {

@@ -31,3 +31,30 @@ export enum MovementType {
 registerEnumType(MovementType, {
   name: 'MovementType',
 });
+
+export enum SettlementModel {
+  DIRECT = 'DIRECT',
+  INDIRECT = 'INDIRECT',
+}
+registerEnumType(SettlementModel, {
+  name: 'SettlementModel',
+});
+
+export enum Currency {
+  EUR = 'EUR',
+}
+registerEnumType(Currency, {
+  name: 'Currency',
+});
+
+export enum Frequency {
+  DAILY = 'DAILY',
+  MONTHLY = 'MONTHLY',
+  QUARTERLY = 'QUARTERLY',
+  SEMIANNUAL = 'SEMIANNUAL',
+  ANNUAL = 'ANNUAL',
+  WEEKLY = 'WEEKLY',
+}
+registerEnumType(Frequency, {
+  name: 'Frequency',
+});

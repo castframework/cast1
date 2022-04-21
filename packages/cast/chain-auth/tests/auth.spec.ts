@@ -2,7 +2,7 @@ import 'mocha';
 import { expect } from 'chai';
 import { generateNewJws } from '../src/jws';
 import { signJws, authenticate } from '../src/auth';
-import { ForgeJws } from '../src/types';
+import { CASTJws } from '../src/types';
 import { checkSender } from '../src/tokenUtils';
 
 const privateKey =
@@ -24,7 +24,7 @@ const jws = {
 };
 const signedJws = `eyJhbGciOiJFVEgiLCJ0eXAiOiJKV1QifQ==.eyJpYXQiOjAsImV4cCI6NTAwMTU5Njc5OTE4NzE2NiwiaXNzIjoiMHg1OGQ5ZTNhYzZlYTI1NmZhOTA3ZGIxNTZlM2ExMjlmNmIxMjI4ZmMyYTAxNzQ4ZjIwMjc3MDZhNzlkZjVjOTBjYTI4ZjE5NmQ5MmM3NDE3YjkwZjUyMGZlZjVmNWM4MWQ1OWNlNzQ1ZGZlY2NlMGU4OWI1NmQ3NTdmNDZmMTRkZCIsImF1ZCI6Imh0dHBzOi8vdG8ud2hvLml0Lm1heS5jb25jZXJuIn0=.0x5140dc90b169b2cfedeced8d39554b296ca782506ab0bd857502541ebfc3ea473842bfd7bda24bb3ae5dad2de1321531dfb250d8c6655e26d9446618582194461b`;
 
-const newJws: ForgeJws = {
+const newJws: CASTJws = {
   header: {
     alg: 'ETH',
     typ: 'JWT',

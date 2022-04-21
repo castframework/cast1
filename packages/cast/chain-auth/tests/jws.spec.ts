@@ -8,10 +8,10 @@ import {
   decodeJws,
   generateNewJws,
 } from '../src/jws';
-import { ForgeJws } from '../src/types';
+import { CASTJws } from '../src/types';
 
 const aud = 'https://to.who.it.may.concern';
-const newJws: ForgeJws = {
+const newJws: CASTJws = {
   header: {
     alg: 'ETH',
     typ: 'JWT',
@@ -26,7 +26,7 @@ const newJws: ForgeJws = {
 const encodedNewJws =
   'eyJhbGciOiJFVEgiLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjAsImV4cCI6MTIzNDU2LCJpc3MiOiJtYXJpbyIsImF1ZCI6Imh0dHBzOi8vdG8ud2hvLml0Lm1heS5jb25jZXJuIn0';
 
-const signedJws: ForgeJws = { ...newJws, signature: 'signature' };
+const signedJws: CASTJws = { ...newJws, signature: 'signature' };
 const encodedJws =
   'eyJhbGciOiJFVEgiLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjAsImV4cCI6MTIzNDU2LCJpc3MiOiJtYXJpbyIsImF1ZCI6Imh0dHBzOi8vdG8ud2hvLml0Lm1heS5jb25jZXJuIn0.signature';
 

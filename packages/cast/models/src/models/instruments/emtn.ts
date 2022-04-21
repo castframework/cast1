@@ -23,7 +23,6 @@ import { Instrument } from '.';
 export class EMTN extends Instrument {
   public type: InstrumentType.EMTN;
 
-  // TODO: #1499 Forge annotation
   @Field((returns) => EmtnType, { nullable: true })
   @IsEnum(EmtnType)
   public EmtnType?: EmtnType;

@@ -6,7 +6,7 @@ import {
   InitiateTradeInputHelpers,
   OracleSettlementTransactionHelpers,
   SettlementTransactionType,
-  ForgeOperationType,
+  OperationType,
   InitiateTradeInput,
   ParticipantAdresses,
   CancelSettlementTransactionInput,
@@ -74,20 +74,17 @@ describe('[Unit] FRO operation Service =>', () => {
 
     const initiateOperationPromise = froOperationService.initiateOperation(
       input,
-      ForgeOperationType.REDEMPTION,
+      OperationType.REDEMPTION,
     );
 
     await expect(initiateOperationPromise).to.be.rejectedWith(
-      'forgeOperationType is not a valid operation type : Redemption',
+      'castOperationType is not a valid operation type : Redemption',
     );
   });
 
   it('[initiateOperation - Trade] should create settlement transaction with correct global informations', async () => {
     const froOperationService = givenTestInstance();
-    await froOperationService.initiateOperation(
-      input,
-      ForgeOperationType.TRADE,
-    );
+    await froOperationService.initiateOperation(input, OperationType.TRADE);
 
     sinon.assert.calledWithMatch(
       strClientService.createSettlementTransaction as SinonStub,
@@ -106,10 +103,7 @@ describe('[Unit] FRO operation Service =>', () => {
 
   it('[initiateOperation - Trade] should create settlement transaction with correct payment informations', async () => {
     const froOperationService = givenTestInstance();
-    await froOperationService.initiateOperation(
-      input,
-      ForgeOperationType.TRADE,
-    );
+    await froOperationService.initiateOperation(input, OperationType.TRADE);
     sinon.assert.calledWithMatch(
       strClientService.createSettlementTransaction as SinonStub,
       sinon.match({
@@ -127,7 +121,7 @@ describe('[Unit] FRO operation Service =>', () => {
 
     const initiateOperationPromise = froOperationService.initiateOperation(
       input,
-      ForgeOperationType.TRADE,
+      OperationType.TRADE,
     );
 
     await expect(initiateOperationPromise).to.be.rejected;

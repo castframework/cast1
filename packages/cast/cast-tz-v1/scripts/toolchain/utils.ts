@@ -86,7 +86,7 @@ export async function getTezosToolkit(
 
   toolkit.setProvider({
     rpc: networkConfig.nodeConfig.host,
-    signer: new InMemorySigner(networkConfig.keysConfig.SG_FORGE),
+    signer: new InMemorySigner(networkConfig.keysConfig.CAST_AGENT),
     config: {
       confirmationPollingIntervalSecond: 1,
       confirmationPollingTimeoutSecond: 3600,

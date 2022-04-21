@@ -16,7 +16,7 @@ import {
 import { InstrumentStatus, InstrumentType } from './constants';
 import { Ledger } from '../constants';
 import { Bond, EMTN } from '.';
-import { Currency } from '../operations';
+import { Currency } from '../settlement-transactions';
 
 @InterfaceType({
   resolveType(instrument: Instrument) {

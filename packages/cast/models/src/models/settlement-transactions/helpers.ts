@@ -2,7 +2,7 @@ import {
   OracleSettlementTransaction,
   STRSettlementTransaction,
 } from './settlement-transaction';
-import { Currency, SettlementModel } from '../operations';
+import { Currency, SettlementModel } from './constants';
 import { Ledger } from '../constants';
 import { v4 } from 'uuid';
 import * as faker from 'faker';

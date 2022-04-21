@@ -1,27 +1,3 @@
-type SettlementTransactionParticipantAddresses {
-  securityDeliverer: String!
-  securityReceiver: String!
-  securityIssuer: String!
-  settler: String!
-  registrar: String!
-}
-
-type LightSettlementTransaction {
-  id: String!
-  participantAccountNumbers: SettlementTransactionParticipantAddresses!
-}
-
-type LedgerBlockInfo {
-  ledger: Ledger!
-  blockNumber: Float!
-  blockHash: String!
-}
-
-enum Ledger {
-  ETHEREUM
-  TEZOS
-}
-
 type STRSettlementTransaction {
   id: String!
   settlementType: SettlementTransactionType!
@@ -60,6 +36,11 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+enum Ledger {
+  ETHEREUM
+  TEZOS
+}
+
 enum Currency {
   EUR
 }
@@ -81,6 +62,25 @@ type Movement {
 enum MovementType {
   CASH
   TOKEN
+}
+
+type SettlementTransactionParticipantAddresses {
+  securityDeliverer: String!
+  securityReceiver: String!
+  securityIssuer: String!
+  settler: String!
+  registrar: String!
+}
+
+type LightSettlementTransaction {
+  id: String!
+  participantAccountNumbers: SettlementTransactionParticipantAddresses!
+}
+
+type LedgerBlockInfo {
+  ledger: Ledger!
+  blockNumber: Float!
+  blockHash: String!
 }
 
 type TransactionDetails {
