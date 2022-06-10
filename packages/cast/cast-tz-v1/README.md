@@ -1,4 +1,4 @@
-# Forge Tezos SmartContracts.
+# CAST Tezos SmartContracts.
 
 # Diagram
 

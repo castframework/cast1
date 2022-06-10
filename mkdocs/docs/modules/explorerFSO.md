@@ -1,6 +1,6 @@
-# Explorer FSO (Forge Settlement Oracle)
+# Explorer FSO (Financial Settlement Oracle)
 
-The <span class="fsoColor">Forge Settlement Oracle (FSO)</span> is designed to provide important DvP (Delivery vs Payment) functionalities when the issuer and investor are prepared to complete the trade. This oracle can be connected to an outside entity to extend payment options.
+The <span class="fsoColor">Financial Settlement Oracle (FSO)</span> is designed to provide important DvP (Delivery vs Payment) functionalities when the issuer and investor are prepared to complete the trade. This oracle can be connected to an outside entity to extend payment options.
 
 This workflow exposes the settlement agent operations!
 ## Subscribe to notification feeds

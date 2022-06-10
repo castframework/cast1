@@ -1,7 +1,7 @@
 {
   "name": "@castframework/cast-eth-v1",
   "version": "1.0.0",
-  "description": "Smartcontracts for Forge Platform",
+  "description": "Smartcontracts for the CAST framework",
   "author": "Société Générale Forge",
   "license": "See license in LICENSE",
   "private": true,
