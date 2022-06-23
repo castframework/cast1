@@ -27,7 +27,8 @@
   {
     "action": "authorizeFactory",
     "registry": "REGISTRY",
-    "target": "FACTORY_BOND"
+    "target": "FACTORY_BOND",
+    "instrumentType": "Bond"
   },
   {
     "action": "originate",
@@ -47,6 +48,7 @@
   {
     "action": "authorizeFactory",
     "registry": "REGISTRY",
-    "target": "FACTORY_EMTN"
+    "target": "FACTORY_EMTN",
+    "instrumentType": "EMTN"
   }
 ]
