@@ -257,7 +257,6 @@ export class FxoSettlementInfoService {
       isSoftBullet: await instrument.isSoftBullet(),
       softBulletPeriodInMonths:
         (await instrument.softBulletPeriodInMonths()) as number,
-      type: (await instrument.getType()) as string,
     };
     this.logger.debug(
       `[${instrumentLedger}] instrument address ${contractAddress} have details: ${instrumentDetails}`,

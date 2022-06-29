@@ -396,14 +396,6 @@ export class ForgeBond<
     );
   }
 
-  public async getType(
-    transactionBlockchainSpecificParams?: Partial<
-      BlockchainSpecificParamsOf<Driver>
-    >,
-  ): Promise<CallResult<string>> {
-    return this._call('getType', [], transactionBlockchainSpecificParams);
-  }
-
   public async getBalance(
     address: string,
     transactionBlockchainSpecificParams?: Partial<
