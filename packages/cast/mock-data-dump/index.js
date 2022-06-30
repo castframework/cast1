@@ -7,12 +7,13 @@ const {
 const { GraphQLClient } = require('graphql-request');
 const toCreate = require('./data.json');
 const {bondCreation} = require('./bond-creation');
+require('dotenv').config();
 
-const froEndpoint = 'http://localhost:6661/graphql';
-const fsoEndpoint = 'http://localhost:6663/graphql';
+const froEndpoint = `http://${process.env.FRO_ENDPOINT || 'localhost:6661/graphql'}`;
+const fsoEndpoint = `http://${process.env.FSO_ENDPOINT || 'localhost:6663/graphql'}`;
 const froClient = new GraphQLClient(froEndpoint);
 const fsoClient = new GraphQLClient(fsoEndpoint);
-const ledger = 'ETHEREUM';
+const ledger = process.env.LEDGER || 'ETHEREUM';
 
 async function main() {
   const froAddress = await froClient.request(WhoamiFRO, { ledger });
@@ -22,7 +23,15 @@ async function main() {
   console.log('FSO Address:', fsoAddress.whoami);
 
   for (bond of toCreate) {
-    await bondCreation(froClient, froAddress.whoami, fsoClient, fsoAddress.whoami, ledger, bond);
+    try {
+      await bondCreation(froClient, froAddress.whoami, fsoClient, fsoAddress.whoami, ledger, bond);
+    } catch(err) {
+      if(err.response.errors[0].message.includes('Bond with this name already exists')) {
+          console.error(`!! Bond ${bond.symbol} already exists`);
+      } else {
+          console.error(err);
+      }
+    }
   }
 
   console.log('All done !');

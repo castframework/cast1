@@ -14,5 +14,5 @@ const createSubscriptionObservable = (wsurl, query, variables) => {
 };
 
 exports.create = (query) => {
-  return createSubscriptionObservable('ws://localhost:6661/graphql', query);
+  return createSubscriptionObservable(`ws://${process.env.FSO_ENDPOINT || 'localhost:6661/graphql'}`, query);
 };

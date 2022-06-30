@@ -28,12 +28,7 @@ exports.bondCreation = async (froClient, froAddress, fsoClient, fsoAddress, ledg
         try {
             await froClient.request(CreateBond, { bond });
         } catch(err) {
-            if(err.response.errors[0].message.includes('Bond with this name already exists')) {
-                console.error(`!! Bond ${bondToCreate.symbol} already exists`);
-            } else {
-                console.error(err);
-            }
-            reject();
+            reject(err);
         }
         
         const registrySub = sub.create(REGISTRY_NOTIFICATION_SUB).subscribe(async (event) => {
