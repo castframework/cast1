@@ -13,7 +13,7 @@ const mockBond = require('./queries-variables/createBondInput.json');
 const mockInitiateSubscriptionInput = require('./queries-variables/initiateSubscriptionInput.json');
 const sub = require('./subscription');
 const { v4: uuid } = require('uuid');
-const { investors } = require('./mock-investors.json');
+const investors = require('./mock-investors.json');
 const issuerAccountNumber = generateIban();
 
 exports.forgeBond = async (froClient, froAddress, fsoClient, fsoAddress, ledger, bondToForge) => {
@@ -30,12 +30,7 @@ exports.forgeBond = async (froClient, froAddress, fsoClient, fsoAddress, ledger,
         try {
             await froClient.request(CreateBond, { bond });
         } catch (err) {
-            if (err.response.errors[0].message.includes('Bond with this name already exists')) {
-                console.error(`!! Bond ${bondToForge.symbol} already exists`);
-            } else {
-                console.error(err);
-            }
-            reject();
+            reject(err);
         }
 
         const registrySub = sub.create(REGISTRY_NOTIFICATION_SUB).subscribe(async (event) => {
@@ -44,7 +39,7 @@ exports.forgeBond = async (froClient, froAddress, fsoClient, fsoAddress, ledger,
 
             console.log('Initiate Subscriptions for bond:', instrumentAddress);
             const issuerLEI = bondToForge.issuerId;
-            investors.forEach((investor, index) => {
+            for (const [index, investor] of investors.entries()) {
                 let initiateSubscriptionInput = {
                     ...mockInitiateSubscriptionInput,
                     ...{
@@ -60,8 +55,8 @@ exports.forgeBond = async (froClient, froAddress, fsoClient, fsoAddress, ledger,
                     instrumentLedger: ledger
                 };
                 await froClient.request(InitiateSubscription, { initiateSubscriptionInput });
-                console.log(`Subscription ${index}/${investors.length}`);
-            });
+                console.log(`Subscription ${index + 1}/${investors.length}`);
+            };
             registrySub.unsubscribe();
         });
 
