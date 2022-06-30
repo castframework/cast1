@@ -1,0 +1,18 @@
+[
+    {
+        "symbol": "US00111MC",
+        "isinCode": "US00111MC",
+        "issuerId": "ZXTILKJKG63JELOEG630",
+        "registrarId": "984500E37490865IK993",
+        "settlementAgentId": "984500569P9MBEV48E11",
+        "couponRateInBips": 425
+    },
+    {
+        "symbol": "US00111AM",
+        "isinCode": "US00111AM",
+        "issuerId": "INR2EJN1ERAN0W5ZP974",
+        "registrarId": "984500E37490865IK993",
+        "settlementAgentId": "984500569P9MBEV48E11",
+        "couponRateInBips": 355
+    }
+]

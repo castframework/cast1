@@ -23,7 +23,7 @@
   "isSoftBullet": false,
   "softBulletPeriodInMonths": 12,
   "spread": 0,
-  "issuerId": "INR2EJN1ERAN0W5ZP974",
-  "registrarId": "984500E37490865IK993",
-  "settlementAgentId": "984500569P9MBEV48E11"
+  "issuerId": "WILL_CHANGE",
+  "registrarId": "LEI_REGISTRAR",
+  "settlementAgentId": "LEI_SETTLEMENT_AGENT"
 }

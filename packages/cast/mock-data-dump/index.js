@@ -5,8 +5,8 @@ const {
   WhoamiFSO,
 } = require('./queries/fso');
 const { GraphQLClient } = require('graphql-request');
-const toCreate = require('./data.json');
-const {bondCreation} = require('./bond-creation');
+const bondToForge = require('./mock-bonds.json');
+const { forgeBond } = require('./bond-creation');
 require('dotenv').config();
 
 const froEndpoint = `http://${process.env.FRO_ENDPOINT || 'localhost:6661/graphql'}`;
@@ -22,14 +22,14 @@ async function main() {
   console.log('FRO Address:', froAddress.whoami);
   console.log('FSO Address:', fsoAddress.whoami);
 
-  for (bond of toCreate) {
+  for (bond of bondToForge) {
     try {
-      await bondCreation(froClient, froAddress.whoami, fsoClient, fsoAddress.whoami, ledger, bond);
-    } catch(err) {
-      if(err.response.errors[0].message.includes('Bond with this name already exists')) {
-          console.error(`!! Bond ${bond.symbol} already exists`);
+      await forgeBond(froClient, froAddress.whoami, fsoClient, fsoAddress.whoami, ledger, bond);
+    } catch (err) {
+      if (err.response.errors[0].message.includes('Bond with this name already exists')) {
+        console.error(`!! Bond ${bond.symbol} already exists`);
       } else {
-          console.error(err);
+        console.error(err);
       }
     }
   }
