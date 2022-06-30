@@ -1,0 +1,20 @@
+{
+  "name": "mock-data-dump",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-link": "^1.2.14",
+    "apollo-link-ws": "^1.0.20",
+    "graphql-request": "^4.3.0",
+    "graphql-tag": "^2.12.6",
+    "subscriptions-transport-ws": "^0.9.0",
+    "uuid": "^8.3.2",
+    "ws": "^8.8.0"
+  }
+}
