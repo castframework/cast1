@@ -5,9 +5,7 @@
 # Personal Conf
 .vscode/
 \.DS_Store
-skaffold.yaml
 
-auth0-cypress-demo/
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs

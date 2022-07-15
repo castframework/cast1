@@ -24,7 +24,7 @@ export type EnvironmentConfig = {
 
 export type ContractsConfig = { [contractName: string]: string };
 export type KeysConfig = {
-  SG_FORGE: TezosKey;
+  CAST_AGENT: TezosKey;
   REGISTRAR: TezosKey;
   ISSUER_1: TezosKey;
   DEALER_1: TezosKey;

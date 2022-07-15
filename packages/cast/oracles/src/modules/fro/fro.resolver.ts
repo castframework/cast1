@@ -7,7 +7,7 @@ import {
   InitiateRedemptionInput,
   InitiateSubscriptionInput,
   InitiateTradeInput,
-  ForgeOperationType,
+  OperationType,
   CancelSettlementTransactionInput,
 } from '@castframework/models';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
@@ -46,7 +46,7 @@ export class FROResolver {
   ): Promise<string> {
     return await this.froOperationService.initiateOperation(
       initiateSubscriptionInput,
-      ForgeOperationType.SUBSCRIPTION,
+      OperationType.SUBSCRIPTION,
     );
   }
 
@@ -108,7 +108,7 @@ export class FROResolver {
   ): Promise<string> {
     return await this.froOperationService.initiateOperation(
       initiateTradeInput,
-      ForgeOperationType.TRADE,
+      OperationType.TRADE,
     );
   }
 }

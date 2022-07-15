@@ -13,7 +13,7 @@ import {
   IsOptional,
 } from 'class-validator';
 import { ColumnNumericTransformer } from '../../utils/utils';
-import { Currency, SettlementModel } from '../operations';
+import { Currency, SettlementModel } from '../settlement-transactions';
 
 @Entity()
 @ObjectType()

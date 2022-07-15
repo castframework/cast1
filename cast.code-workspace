@@ -1,9 +1,6 @@
 {
   "extensions": {
     "recommendations": [
-      "googlecloudtools.cloudcode",
-      "msjsdiag.debugger-for-chrome",
-      "jingkaizhao.vscode-redux-devtools",
       "ms-azuretools.vscode-docker",
       "redhat.vscode-yaml",
       "mikestead.dotenv",
@@ -43,7 +40,7 @@
       "path": "packages/cast/cast-tz-v1"
     },
     {
-      "name": "forge-platform",
+      "name": "cast-v1",
       "path": "."
     }
   ],
@@ -75,10 +72,8 @@
     "editor.tabSize": 2,
     "files.eol": "\n",
     "files.exclude": {
-      "packages/sgforge/www": true,
       "packages/cast/cast-eth-v1": true,
       "packages/cast/cast-tz-v1": true,
-      "charts": true,
       "packages": true
     },
     "eslint.enable": true,
@@ -179,7 +174,7 @@
     "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
     "typescript.reportStyleChecksAsWarnings": false,
-    "typescript.tsdk": "forge-platform/node_modules/typescript/lib",
+    "typescript.tsdk": "cast1/node_modules/typescript/lib",
     "workbench.editor.enablePreview": false,
     "solidity.enableLocalNodeCompiler": false,
     "python.formatting.autopep8Args": [

@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Ledger } from '../constants';
-import { Currency, SettlementModel } from '../operations';
+import { Currency, SettlementModel } from '../settlement-transactions';
 
 @InputType()
 export class ParticipantAdresses {
@@ -112,7 +112,7 @@ export class InitiateTradeInput extends OperationInput {
   public paymentCurrency: Currency;
 }
 
-export enum ForgeOperationType {
+export enum OperationType {
   SUBSCRIPTION = 'Subscription',
   TRADE = 'Trade',
   REDEMPTION = 'Redemption',

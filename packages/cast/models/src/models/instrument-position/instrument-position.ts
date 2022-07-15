@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Ledger } from '../constants';
-import { Currency } from '../operations';
+import { Currency } from '../settlement-transactions';
 
 @ObjectType()
 export class InstrumentPosition {

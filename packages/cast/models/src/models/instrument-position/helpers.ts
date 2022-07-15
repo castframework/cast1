@@ -1,7 +1,7 @@
 import { InstrumentPosition } from './instrument-position';
 import { Ledger } from '../constants';
 import * as faker from 'faker';
-import { Currency } from '../operations';
+import { Currency } from '../settlement-transactions';
 
 export class InstrumentPositionHelpers {
   public static givenInstrumentPosition(

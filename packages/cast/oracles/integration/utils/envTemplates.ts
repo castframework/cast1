@@ -79,7 +79,7 @@ export function defaultEnv(
   process.env['API_FRO_GQL_EP'] = `http://localhost:${froPort}/graphql`;
 
   // BUSINESS CONFIGURATION
-  process.env['LEI_FORGE'] = '969500FX8K40ZDW4F377';
+  process.env['LEI_CAST_AGENT'] = '268CD3363A0B7D0EE89A';
 }
 
 export function randomDbEnv(envConfig?: EnvConfig, prefix = 'tmp'): string {

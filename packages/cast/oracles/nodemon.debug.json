@@ -6,5 +6,5 @@
   "ignore": [
     "tests/**/*.spec.ts"
   ],
-  "exec": "node --inspect-brk=0.0.0.0:9229 -r ts-node/register src/main.ts $FORGE_ORACLE_PARAMETERS"
+  "exec": "node --inspect-brk=0.0.0.0:9229 -r ts-node/register src/main.ts $CAST_ORACLE_PARAMETERS"
 }

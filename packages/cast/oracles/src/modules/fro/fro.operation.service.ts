@@ -3,7 +3,7 @@ import {
   CancelSettlementTransactionInput,
   CreateMovementInput,
   CreateOracleSettlementTransactionInput,
-  ForgeOperationType,
+  OperationType,
   InitiateSubscriptionInput,
   InitiateTradeInput,
   Ledger,
@@ -38,19 +38,19 @@ export class FroOperationService {
 
   public async initiateOperation(
     input: InitiateTradeInput | InitiateSubscriptionInput,
-    forgeOperationType: ForgeOperationType,
+    castOperationType: OperationType,
   ): Promise<string> {
     const logger = getLogger(this.constructor.name, 'initiateOperation');
     logger.debug(
-      `Initiate Operation [${forgeOperationType}] with input: ${JSON.stringify(
+      `Initiate Operation [${castOperationType}] with input: ${JSON.stringify(
         input,
       )}`,
     );
     if (
-      forgeOperationType !== ForgeOperationType.TRADE &&
-      forgeOperationType !== ForgeOperationType.SUBSCRIPTION
+      castOperationType !== OperationType.TRADE &&
+      castOperationType !== OperationType.SUBSCRIPTION
     ) {
-      const errorMessage = `forgeOperationType is not a valid operation type : ${forgeOperationType}`;
+      const errorMessage = `castOperationType is not a valid operation type : ${castOperationType}`;
       logger.error(errorMessage);
 
       throw new BadRequestException(errorMessage);
@@ -58,7 +58,7 @@ export class FroOperationService {
 
     // To remove when initiateTrade will be implemented on tezos blockchain
     if (
-      forgeOperationType === ForgeOperationType.TRADE &&
+      castOperationType === OperationType.TRADE &&
       input.instrumentLedger === Ledger.TEZOS
     ) {
       const errorMessage = `Initiate Trade on Tezos Blockchain is not implemented yet`;
@@ -82,7 +82,7 @@ export class FroOperationService {
       }
       const issuerDeliveryAccountNumber = await instrumentContract.owner();
       settlementTransactionInput =
-        forgeOperationType === ForgeOperationType.TRADE
+        castOperationType === OperationType.TRADE
           ? await this.generateSettlementTransactionsInputTrade(
               input as InitiateTradeInput,
             )
@@ -140,8 +140,8 @@ export class FroOperationService {
 
     let transactionHash: string;
 
-    switch (forgeOperationType) {
-      case ForgeOperationType.TRADE:
+    switch (castOperationType) {
+      case OperationType.TRADE:
         logger.info(
           `Initiate trade for instrument at address ${input.instrumentAddress} on ${input.instrumentLedger} with transactionHash ${settlementTransaction.hash}`,
         );
@@ -154,7 +154,7 @@ export class FroOperationService {
         );
         transactionHash = initiateTradeReturn.transactionId;
         break;
-      case ForgeOperationType.SUBSCRIPTION:
+      case OperationType.SUBSCRIPTION:
         logger.info(
           `Initiate subscription for instrument at address ${input.instrumentAddress} on ${input.instrumentLedger} with transactionHash ${settlementTransaction.hash}`,
         );
@@ -168,7 +168,7 @@ export class FroOperationService {
         break;
       default:
         throw new BadRequestException(
-          `forgeOperationType is not a valid operation type : ${forgeOperationType}`,
+          `castOperationType is not a valid operation type : ${castOperationType}`,
         );
     }
 

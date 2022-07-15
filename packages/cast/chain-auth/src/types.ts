@@ -1,6 +1,6 @@
 export interface AuthReport {
   success: boolean;
-  jws: ForgeJws;
+  jws: CASTJws;
   address: string; // address according to the jwsHeader.alg and jwsData.iss fields
   errorMessage?: string;
 }
@@ -18,7 +18,7 @@ export type jwsData = {
   jti?: string;
 };
 
-export interface ForgeJws {
+export interface CASTJws {
   header: jwsHeader;
   data: jwsData;
   signature?: string;

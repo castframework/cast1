@@ -1,3 +1,107 @@
+type STRSettlementTransaction {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  movements: [Movement!]!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+}
+
+enum SettlementTransactionType {
+  DVP
+  PFOD
+  DWP
+  FOP
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum Ledger {
+  ETHEREUM
+  TEZOS
+}
+
+enum Currency {
+  EUR
+}
+
+enum SettlementModel {
+  DIRECT
+  INDIRECT
+}
+
+type OracleSettlementTransaction {
+  id: String!
+  settlementType: SettlementTransactionType!
+  settlementDate: DateTime!
+  operationId: String!
+  instrumentPublicAddress: String!
+  instrumentLedger: Ledger!
+  deliveryQuantity: Float!
+  deliverySenderAccountNumber: String!
+  deliveryReceiverAccountNumber: String!
+  paymentAmount: Float!
+  paymentCurrency: Currency!
+  paymentReceiverAccountNumber: String!
+  paymentSenderAccountNumber: String!
+  paymentSenderLegalEntityId: String!
+  paymentReceiverLegalEntityId: String!
+  movements: [Movement!]!
+  hash: String!
+  tradeId: String
+  tradeDate: DateTime!
+  additionalReaderAddresses: [String!]
+  settlementModel: SettlementModel!
+  holdableTokenAddress: String
+  intermediateAccountIBAN: String
+  settlementStatus: SettlementTransactionStatus!
+}
+
+enum SettlementTransactionStatus {
+  INITIATED
+  PENDING
+  ACKNOWLEDGED
+  REJECTED
+  UNPROCESSED
+  PROCESSED
+  SETTLED
+  CANCELED
+}
+
+type Movement {
+  id: String!
+  settlementTransactions: [STRSettlementTransaction!]!
+  movementType: MovementType!
+  senderAccountNumber: String!
+  receiverAccountNumber: String!
+  paymentReference: String
+}
+
+enum MovementType {
+  CASH
+  TOKEN
+}
+
 type InstrumentPosition {
   instrumentAddress: String!
   ledger: Ledger!
@@ -9,15 +113,6 @@ type InstrumentPosition {
   percentage: Float
   unlocked: Float
   locked: Float
-}
-
-enum Ledger {
-  ETHEREUM
-  TEZOS
-}
-
-enum Currency {
-  EUR
 }
 
 type InstrumentDetails {
@@ -109,101 +204,6 @@ type RegistryNotification {
 enum RegistryNotificationName {
   InstrumentListed
   InstrumentUnlisted
-}
-
-type STRSettlementTransaction {
-  id: String!
-  settlementType: SettlementTransactionType!
-  settlementDate: DateTime!
-  operationId: String!
-  instrumentPublicAddress: String!
-  instrumentLedger: Ledger!
-  deliveryQuantity: Float!
-  deliverySenderAccountNumber: String!
-  deliveryReceiverAccountNumber: String!
-  paymentAmount: Float!
-  paymentCurrency: Currency!
-  paymentReceiverAccountNumber: String!
-  paymentSenderAccountNumber: String!
-  paymentSenderLegalEntityId: String!
-  paymentReceiverLegalEntityId: String!
-  movements: [Movement!]!
-  hash: String!
-  tradeId: String
-  tradeDate: DateTime!
-  additionalReaderAddresses: [String!]
-  settlementModel: SettlementModel!
-  holdableTokenAddress: String
-  intermediateAccountIBAN: String
-}
-
-enum SettlementTransactionType {
-  DVP
-  PFOD
-  DWP
-  FOP
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-enum SettlementModel {
-  DIRECT
-  INDIRECT
-}
-
-type OracleSettlementTransaction {
-  id: String!
-  settlementType: SettlementTransactionType!
-  settlementDate: DateTime!
-  operationId: String!
-  instrumentPublicAddress: String!
-  instrumentLedger: Ledger!
-  deliveryQuantity: Float!
-  deliverySenderAccountNumber: String!
-  deliveryReceiverAccountNumber: String!
-  paymentAmount: Float!
-  paymentCurrency: Currency!
-  paymentReceiverAccountNumber: String!
-  paymentSenderAccountNumber: String!
-  paymentSenderLegalEntityId: String!
-  paymentReceiverLegalEntityId: String!
-  movements: [Movement!]!
-  hash: String!
-  tradeId: String
-  tradeDate: DateTime!
-  additionalReaderAddresses: [String!]
-  settlementModel: SettlementModel!
-  holdableTokenAddress: String
-  intermediateAccountIBAN: String
-  settlementStatus: SettlementTransactionStatus!
-}
-
-enum SettlementTransactionStatus {
-  INITIATED
-  PENDING
-  ACKNOWLEDGED
-  REJECTED
-  UNPROCESSED
-  PROCESSED
-  SETTLED
-  CANCELED
-}
-
-type Movement {
-  id: String!
-  settlementTransactions: [STRSettlementTransaction!]!
-  movementType: MovementType!
-  senderAccountNumber: String!
-  receiverAccountNumber: String!
-  paymentReference: String
-}
-
-enum MovementType {
-  CASH
-  TOKEN
 }
 
 type TransactionDetails {
