@@ -17,6 +17,7 @@ import { EVENT_PLATFORM_LEVEL_PREPARED } from './fro.event.constant';
 import { FroService } from './fro.service';
 import { FroRedemptionService } from './fro.redemption.service';
 import { FroOperationService } from './fro.operation.service';
+import { DpoService } from '../dpo/dataProvider.service';
 
 @Resolver(() => String)
 export class FROResolver {
@@ -27,6 +28,7 @@ export class FROResolver {
     private readonly pubSub: ForgePubSub,
     private readonly froRedemptionService: FroRedemptionService,
     private readonly froOperationService: FroOperationService,
+    private readonly dpoService: DpoService;
   ) {}
 
   @Mutation(() => String)
@@ -110,5 +112,14 @@ export class FROResolver {
       initiateTradeInput,
       ForgeOperationType.TRADE,
     );
+  }
+
+  @Mutation(() => String)
+  @HandleLogsAndErrors(log4js.levels.DEBUG)
+  public async dataRequest(
+    @Args('contractAddress')
+    contractAddress: string,
+  ): Promise<string> {
+    return await this.dpoService.dataRequest(contractAddress);
   }
 }

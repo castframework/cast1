@@ -3,4 +3,5 @@ export const enum Mode {
   FRO = 'fro',
   FSO = 'fso',
   FIO = 'fio',
+  DPO = 'dpo',
 }

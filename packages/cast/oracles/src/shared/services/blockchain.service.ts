@@ -13,6 +13,7 @@ import {
   ForgeTokenFactoryViewMappers,
   ForgeTokenViewMappers,
   getAbi,
+  DataProviderOracle,
 } from '@castframework/cast-interface-v1';
 import {
   BlockchainDriver,
@@ -451,6 +452,36 @@ export class BlockchainService implements OnModuleDestroy {
         break;
     }
     return new ForgeBond(
+      address,
+      transactionManager,
+      contractBlockchainSpecificParams,
+    );
+  }
+
+  async getDataProviderOracle<SpecificLedger extends Ledger>(
+    ledger: Ledger,
+    address: string,
+  ): Promise<DataProviderOracle<DriverOf<SpecificLedger>>> {
+    const transactionManager = this.transactionManagers.get(ledger);
+    if (transactionManager === undefined) {
+      throw new Error('No transaction manager found for this ledger');
+    }
+
+    let contractBlockchainSpecificParams: Partial<
+      BlockchainSpecificParamsOf<DriverOf<SpecificLedger>>
+    > = {};
+
+    switch (ledger) {
+      case Ledger.ETHEREUM:
+        contractBlockchainSpecificParams = {
+          abi: getAbi(ForgeContractType.ON_DEMAND),
+        } as BlockchainSpecificParamsOf<DriverOf<SpecificLedger>>;
+        break;
+      case Ledger.TEZOS:
+        this.logger.error('Error: No Tezos Data Provider Oracle');
+        break;
+    }
+    return new DataProviderOracle(
       address,
       transactionManager,
       contractBlockchainSpecificParams,

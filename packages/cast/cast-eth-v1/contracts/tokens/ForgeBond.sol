@@ -10,8 +10,16 @@ import "../interfaces/IBasicToken.sol";
 import "../interfaces/IInstrument.sol";
 import "../interfaces/IOperatorManager.sol";
 import "../interfaces/ISettlement.sol";
+import "../interfaces/DataProviderOracleConsumer.sol";
+import "../interfaces/DataProviderOracle.sol";
 
-contract ForgeBond is IBasicToken, IOperatorManager, ISettlement, IInstrument {
+contract ForgeBond is
+    IBasicToken,
+    IOperatorManager,
+    ISettlement,
+    IInstrument,
+    DataProviderOracleConsumer
+{
     using BasicTokenLibrary for BasicTokenLibrary.BasicToken;
     using BasicTokenLibrary for BasicTokenLibrary.Bond;
 
@@ -46,7 +54,16 @@ contract ForgeBond is IBasicToken, IOperatorManager, ISettlement, IInstrument {
     uint256 public constant CANCELLED = 0x05;
     uint256 private constant ERROR = 0xFF;
 
+    // DataProviderOracle Results
+    int192 public latestEuriborResult;
+    uint64 public latestTimestamp;
+
     event Transfer(address indexed _from, address indexed _to, uint256 _value); // Only for erc20 explorer
+    event ConsumeDataEvent(
+        uint256 euriborResult,
+        uint256 decimal,
+        uint256 timestamp
+    );
 
     constructor(BasicTokenLibrary.BasicTokenInput memory basicTokenInput)
         public
@@ -167,6 +184,20 @@ contract ForgeBond is IBasicToken, IOperatorManager, ISettlement, IInstrument {
 
     function getType() public view override returns (string memory) {
         return "Bond";
+    }
+
+    function RequestData() external {
+        DataProviderOracle(0x476059cD57800DB8eB88f67c2Aa38A6fCf8251e0)
+            .SubmitRequest();
+    }
+
+    function ConsumeData(
+        int192 euriborResult,
+        int8 decimal,
+        uint64 timestamp
+    ) external override {
+        latestEuriborResult = euriborResult;
+        latestTimestamp = timestamp;
     }
 
     // Modifiers

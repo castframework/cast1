@@ -130,6 +130,7 @@ export async function setupEnv(params: EnvParams): Promise<Env> {
   const FIO1_PORT = await getPort({ port: 6663 });
   const FIO2_PORT = await getPort({ port: 6663 });
   const FIO3_PORT = await getPort({ port: 6667 });
+  const DPO_PORT = await getPort({ port: 6670 });
 
   const dbName = randomDbEnv(
     {
@@ -138,6 +139,7 @@ export async function setupEnv(params: EnvParams): Promise<Env> {
       froPort: FRO_PORT,
       fio1Port: FIO1_PORT,
       fio2Port: FIO2_PORT,
+      dpoPort: DPO_PORT,
     },
     params.name,
   );

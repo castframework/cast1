@@ -261,6 +261,7 @@ type TezosSpecificTransactionInfo {
 }
 
 type Query {
+  test: String!
   getSettlementTransactions(instrumentLedger: Ledger, instrumentAddress: String): [OracleSettlementTransaction!]!
   getSettlementTransactionsByPaymentReference(paymentReference: String): [OracleSettlementTransaction!]!
   whoami(ledger: Ledger!): String!
@@ -273,6 +274,7 @@ type Query {
 }
 
 type Mutation {
+  dataRequest(contractAddress: String!): String!
   boostTransaction(tezosSpecificParams: TezosSpecificParams, ethereumSpecificParams: EthereumSpecificParams, transactionId: String!, ledger: Ledger!): String!
   cancelTransaction(tezosSpecificParams: TezosSpecificParams, ethereumSpecificParams: EthereumSpecificParams, transactionId: String!, ledger: Ledger!): String!
 }
