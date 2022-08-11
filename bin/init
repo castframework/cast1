@@ -29,6 +29,10 @@ source $NVM_DIR/nvm.sh
 nvm use
 lerna bootstrap --strict --hoist
 
+cd "${PRJT_ROOT}finastra-token-reporter"
+npm install
+cd "${PRJT_ROOT}"
+
 ${CCR}/keyset-maker
 
 ${CCR}/build

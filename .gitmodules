@@ -1,0 +1,3 @@
+[submodule "finastra-token-reporter"]
+	path = finastra-token-reporter
+	url = https://github.com/castframework/finastra-token-reporter.git
