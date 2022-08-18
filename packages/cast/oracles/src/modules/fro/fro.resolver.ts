@@ -28,7 +28,6 @@ export class FROResolver {
     private readonly pubSub: ForgePubSub,
     private readonly froRedemptionService: FroRedemptionService,
     private readonly froOperationService: FroOperationService,
-    private readonly dpoService: DpoService;
   ) {}
 
   @Mutation(() => String)
@@ -112,14 +111,5 @@ export class FROResolver {
       initiateTradeInput,
       ForgeOperationType.TRADE,
     );
-  }
-
-  @Mutation(() => String)
-  @HandleLogsAndErrors(log4js.levels.DEBUG)
-  public async dataRequest(
-    @Args('contractAddress')
-    contractAddress: string,
-  ): Promise<string> {
-    return await this.dpoService.dataRequest(contractAddress);
   }
 }
