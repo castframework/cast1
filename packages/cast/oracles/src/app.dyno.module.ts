@@ -12,7 +12,6 @@ import { FIOModule } from './modules/fio/fio.module';
 import { FROModule } from './modules/fro/fro.module';
 import { FSOModule } from './modules/fso/fso.module';
 import { STRModule } from './modules/str/str.module';
-import { DataProviderModule } from './modules/dpo/dataProvider.module';
 import { SharedModule } from './shared.module';
 import { Mode } from './mode';
 import { LoggerOptions } from 'typeorm/logger/LoggerOptions';
@@ -48,10 +47,6 @@ export class AppModule implements NestModule {
 
         case Mode.FIO:
           imports.push(FIOModule);
-          break;
-
-        case Mode.DPO:
-          imports.push(DataProviderModule);
           break;
 
         default:

@@ -6,7 +6,6 @@ import {
   InstrumentDetails,
   OracleSettlementTransaction,
   RegistryNotification,
-  DataProviderNotification,
 } from '@castframework/models';
 import {
   Args,
@@ -46,7 +45,6 @@ import {
   TezosSpecificTransactionInfo,
 } from '@castframework/blockchain-driver-tz';
 import { HandleLogsAndErrors } from '../../utils/logger';
-import { DATA_REQUEST_NOTIFICATION } from '../dpo/dataProvider.event.constant';
 
 @ObjectType('TransactionDetails')
 class TransactionDetails {
@@ -318,21 +316,6 @@ export class FXOResolver {
         EVENT_REGISTRY_NOTIFICATION,
       );
     this.logger.debug(`subscription RegistryNotification: ok`);
-    return result;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  @Subscription((returns) => DataProviderNotification, {
-    nullable: true,
-    resolve: (value) => value.dpoNotification,
-  })
-  public dpoNotification(): AsyncIterator<DataProviderNotification> {
-    this.logger.debug(`Received subscription DpoNotification`);
-    const result: AsyncIterator<DataProviderNotification> =
-      this.pubSub.asyncIterator<DataProviderNotification>(
-        DATA_REQUEST_NOTIFICATION,
-      );
-    this.logger.debug(`subscription DpoNotification: ok`);
     return result;
   }
 

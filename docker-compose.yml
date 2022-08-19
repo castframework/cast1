@@ -81,22 +81,6 @@ services:
       - './networks:/networks'
       - './packages:/home/node/packages/'
       - './node_modules:/home/node/node_modules'
-  dpo:
-    container_name: dpo
-    image: 'node:16.9.1-alpine3.14'
-    working_dir: /home/node/packages/cast/oracles
-    command: npm run start
-    env_file:
-      - ./packages/cast/oracles/env/dc.dpo.env
-    environment:
-      - TZ_BLOCKCHAIN_PROVIDE_LOCATION=http://flextesa:20000
-      - ETH_BLOCKCHAIN_PROVIDE_LOCATION=ws://ganache:8545
-    ports:
-      - '6670:6660'
-    volumes:
-      - './networks:/networks'
-      - './packages:/home/node/packages/'
-      - './node_modules:/home/node/node_modules'
   ganache:
     container_name: ganache
     image: trufflesuite/ganache-cli:latest

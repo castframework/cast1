@@ -8,7 +8,6 @@ export type EnvConfig = {
   fsoPort: number;
   fio1Port: number;
   fio2Port: number;
-  dpoPort: number;
 };
 
 export function defaultEnv(
@@ -18,12 +17,11 @@ export function defaultEnv(
     fsoPort: 6662,
     fio1Port: 6663,
     fio2Port: 6666,
-    dpoPort: 6670,
   },
 ): void {
   const logger = getLogger('defaultEnv');
   logger.info(`Env config: ${JSON.stringify(envConfig)}`);
-  const { froPort, fsoPort, strPort, fio1Port, fio2Port, dpoPort } = envConfig;
+  const { froPort, fsoPort, strPort, fio1Port, fio2Port } = envConfig;
 
   // BLOCKCHAIN PARAMETERS
   if (!process.env['BLOCKCHAIN_USE_MOCK']) {
@@ -79,7 +77,6 @@ export function defaultEnv(
   process.env['STR_GQL_URL'] = `http://localhost:${strPort}/graphql`;
   process.env['FSO_GQL_URL'] = `http://localhost:${fsoPort}/graphql`;
   process.env['API_FRO_GQL_EP'] = `http://localhost:${froPort}/graphql`;
-  process.env['API_DPO_GQL_EP'] = `http://localhost:${dpoPort}/graphql`;
 
   // BUSINESS CONFIGURATION
   process.env['LEI_FORGE'] = '969500FX8K40ZDW4F377';

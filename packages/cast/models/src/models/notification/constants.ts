@@ -38,10 +38,3 @@ export enum ErrorNotificationName {
 registerEnumType(ErrorNotificationName, {
   name: 'ErrorNotificationName',
 });
-
-export enum DataProviderNotificationName {
-  SubscriptionInitiated = 'SubscriptionInitiated',
-}
-registerEnumType(DataProviderNotificationName, {
-  name: 'DataProviderNotificationName',
-});

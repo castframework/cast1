@@ -4,4 +4,3 @@ export * from './error-notification';
 export * from './light-settlement-transaction';
 export * from './heartbeat-notification';
 export * from './registry-notification';
-export * from './data-provider-notification';

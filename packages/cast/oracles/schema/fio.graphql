@@ -111,10 +111,6 @@ enum RegistryNotificationName {
   InstrumentUnlisted
 }
 
-type DataProviderNotification {
-  transactionHash: ID
-}
-
 type STRSettlementTransaction {
   id: String!
   settlementType: SettlementTransactionType!
@@ -293,5 +289,4 @@ type Subscription {
   errorNotification: ErrorNotification
   heartbeatNotification: HeartbeatNotification
   registryNotification: RegistryNotification
-  dpoNotification: DataProviderNotification
 }

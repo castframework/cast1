@@ -90,26 +90,3 @@ generates:
       - introspection
     config:
       minify: true
-  src/modules/dpoClient/generated/graphql.ts:
-    schema: '../oracles/schema/dpo.graphql'
-    documents:
-      - 'src/shared/graphQL/dpo/*.graphql'
-      - 'src/shared/graphQL/fxo/*.graphql'
-    config:
-      namingConvention: keep
-      skipTypename: true
-      scalars:
-        DateTime: Date
-    plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-document-nodes'
-  src/modules/dpoClient/generated/schema.json:
-    schema: '../oracles/schema/dpo.graphql'
-    documents:
-      - 'src/shared/graphQL/dpo/*.graphql'
-      - 'src/shared/graphQL/fxo/*.graphql'
-    plugins:
-      - introspection
-    config:
-      minify: true

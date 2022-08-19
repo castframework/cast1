@@ -17,7 +17,6 @@ import { EVENT_PLATFORM_LEVEL_PREPARED } from './fro.event.constant';
 import { FroService } from './fro.service';
 import { FroRedemptionService } from './fro.redemption.service';
 import { FroOperationService } from './fro.operation.service';
-import { DpoService } from '../dpo/dataProvider.service';
 
 @Resolver(() => String)
 export class FROResolver {
