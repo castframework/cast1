@@ -64,6 +64,7 @@ contract ForgeBond is
         uint256 decimal,
         uint256 timestamp
     );
+    event DataRequest(address caller, uint256 id);
 
     constructor(BasicTokenLibrary.BasicTokenInput memory basicTokenInput)
         public
@@ -186,8 +187,8 @@ contract ForgeBond is
         return "Bond";
     }
 
-    function RequestData() external {
-        DataProviderOracle(0x476059cD57800DB8eB88f67c2Aa38A6fCf8251e0)
+    function RequestData(address oracleAddress) external {
+        DataProviderOracle(oracleAddress)
             .SubmitRequest();
     }
 

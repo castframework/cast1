@@ -1,7 +1,7 @@
 import { ForgeBondInstance } from '../../../../dist/types';
 import * as constants from '../../constants';
 import { assertEvent, assertEventArgs } from '../../utils/events';
-import { buildForgeBond } from '../../utils/builders';
+import { buildForgeBond, buildOnDemandOracle } from '../../utils/builders';
 import * as faker from 'faker';
 
 const initialSupply = constants.initialSupply;
@@ -184,6 +184,13 @@ contract('ForgeBond', (accounts) => {
     it('should have 0 ForgeBond in the second account', async function () {
       await forgeBond.getBalance(accounts[1]).then((balance) => {
         assert.equal(balance.valueOf(), 0, 'Second account has a balance');
+      });
+    });
+
+    it.only('should call DataRequest', async function () {
+      const OnDemandOracle = await buildOnDemandOracle(constants.owner);
+      await forgeBond.RequestData(OnDemandOracle.address).then((result) => {
+        assert.equal(assertEvent(result, 'DataRequest'), 0, 'DataRequest event not found');
       });
     });
   });

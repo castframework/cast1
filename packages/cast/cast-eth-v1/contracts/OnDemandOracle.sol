@@ -27,9 +27,6 @@ contract OnDemandOracle is DataProviderOracle, AbstractInstrumentFactory {
     mapping(uint256 => OracleResult) public oracleResults;
     mapping(uint256 => OracleRequest) public oracleRequests;
 
-    // content to think about, there should also be a type of data asked by the caller
-    event DataRequest(address caller, uint256 id); // don't know if it is possible
-
     constructor(address owner) public AbstractInstrumentFactory(owner) {
         lastID = 0;
     }

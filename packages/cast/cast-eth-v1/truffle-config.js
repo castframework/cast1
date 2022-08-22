@@ -97,6 +97,7 @@ if (typeof networkFolder !== 'string') {
 module.exports = {
   contracts_build_directory: "./dist/contracts",
   migrations_directory: "./dist/migrations",
+  test_directory: "./dist/test",
   plugins: ['solidity-coverage', 'truffle-security'],
   mocha: {
     // not working currently because globals(artifacts, web3, assert, expect) are not shared between processes
