@@ -3,6 +3,7 @@ import * as constants from '../../constants';
 import { assertEvent, assertEventArgs } from '../../utils/events';
 import { buildForgeBond, buildOnDemandOracle } from '../../utils/builders';
 import * as faker from 'faker';
+import { timeStamp } from 'console';
 
 const initialSupply = constants.initialSupply;
 const currentSupply = constants.currentSupply;
@@ -187,10 +188,21 @@ contract('ForgeBond', (accounts) => {
       });
     });
 
-    it.only('should call DataRequest', async function () {
+    it('should call DataRequest', async function () {
       const OnDemandOracle = await buildOnDemandOracle(constants.owner);
       await forgeBond.RequestData(OnDemandOracle.address).then((result) => {
         assert.equal(assertEvent(result, 'DataRequest'), 0, 'DataRequest event not found');
+      });
+    });
+
+    it('should call ConsumeData', async function () {
+      const OnDemandOracle = await buildOnDemandOracle(constants.owner);
+      const euriborResult: BN = 25 as unknown as BN;
+      const decimal = 6;
+      const timeStamp: BN = Date.now() as unknown as BN;
+      await forgeBond.ConsumeData(euriborResult, decimal, timeStamp).then(async (result) => {
+        assert.equal(await forgeBond.latestEuriborResult(), euriborResult, 'Euribor Result was not saved');
+        assert.equal(await forgeBond.latestTimestamp(), timeStamp, 'Euribor Result was not saved');
       });
     });
   });
