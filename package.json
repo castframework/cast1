@@ -174,7 +174,8 @@
     "deploy-eth": "./bin/iter-eth",
     "deploy-tz": "./bin/iter-tz",
     "deploy-all": "./bin/iter-all",
-    "prepare": "if [ \"X$NODE_ENV\" != \"Xproduction\" ]; then husky install; fi"
+    "prepare": "if [ \"X$NODE_ENV\" != \"Xproduction\" ]; then husky install; fi",
+    "data-dump":"lerna run --stream --no-prefix --scope mock-data-dump start"
   },
   "engines": {
     "npm": "^7.24.0"
