@@ -121,3 +121,23 @@ services:
       AUTO_UPDATE: 'true'
     volumes:
       - ./mkdocs:/mkdocs/
+  mongo:
+    container_name: mongo
+    image: 'mongo:latest'
+    restart: always
+    ports:
+      - '27017:27017'
+  finastra-reporter: 
+    container_name: finastra-reporter
+    image: 'node:16.9.1-alpine3.14'
+    working_dir: /home/node/reporter
+    environment:
+      - PORT=3000
+      - FIO_GQL_ENDPOINT=http://fio1:6660/graphql
+      - CORS_WHITELIST=https://finastra-cast-challenge.netlify.app,http://localhost:3000
+      - MONGO_URI=mongodb://mongo:27017
+    command: npm run start
+    ports:
+      - '3000:3000'
+    volumes:
+      - './finastra-token-reporter:/home/node/reporter'
