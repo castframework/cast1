@@ -39,7 +39,6 @@ type InstrumentDetails {
   callable: Boolean!
   isSoftBullet: Boolean!
   softBulletPeriodInMonths: Float!
-  type: String!
 }
 
 type SettlementTransactionParticipantAddresses {

@@ -174,6 +174,4 @@ export class InstrumentDetails {
   public isSoftBullet: boolean;
   @Field()
   public softBulletPeriodInMonths: number;
-  @Field()
-  public type: string;
 }
