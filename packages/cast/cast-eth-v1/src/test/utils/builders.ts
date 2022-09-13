@@ -31,3 +31,10 @@ export async function buildForgeBond(
 
   return ForgeBond.new(bondParameters);
 }
+
+const OnDemandOracle = artifacts.require('OnDemandOracle');
+export async function buildOnDemandOracle(
+  owner: string
+) {
+  return OnDemandOracle.new(owner);
+}

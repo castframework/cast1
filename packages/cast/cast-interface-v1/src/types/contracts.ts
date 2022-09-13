@@ -3,4 +3,5 @@ export enum ForgeContractType {
   BOND_FACTORY = 'ForgeBondFactory',
   EMTN_FACTORY = 'ForgeEmtnFactory',
   INSTRUMENT_REGISTRY = 'ForgeInstrumentRegistry',
+  ON_DEMAND = 'OnDemandOracle',
 }

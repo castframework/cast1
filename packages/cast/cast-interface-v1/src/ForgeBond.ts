@@ -654,4 +654,18 @@ export class ForgeBond<
       transactionBlockchainSpecificParams,
     );
   }
+
+  public async RequestData(
+    transactionParams?: TransactionParams,
+    transactionBlockchainSpecificParams?: Partial<
+      BlockchainSpecificParamsOf<Driver>
+    >,
+  ): Promise<TransactionReceipt> {
+    return this._send<[]>(
+      'RequestData',
+      [],
+      transactionParams,
+      transactionBlockchainSpecificParams,
+    );
+  }
 }

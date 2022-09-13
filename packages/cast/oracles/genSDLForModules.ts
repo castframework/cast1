@@ -53,7 +53,8 @@ async function buildModuleFromPath(
     .filter((file) => file.match(/\.resolver\.ts$/))
     .map((file) => import(`./${file}`));
 
-  const fxoRegex = /^f[^x]o$/; // Will match fro, fio, fso but not fxo
+  // Avoids matching FXO, Config, STR, etc.
+  const fxoRegex = /^f[^x]o$/;
 
   if (moduleName.match(fxoRegex)) {
     log(`🔎 Adding fxo, swift and position resolver for ${moduleName}`);

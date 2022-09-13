@@ -85,7 +85,7 @@ services:
     container_name: ganache
     image: trufflesuite/ganache-cli:latest
     ports:
-      - "8545:8545"
+      - '8545:8545'
     volumes:
       - 'ganache_data:/ganache_data'
     entrypoint:
@@ -103,7 +103,7 @@ services:
     container_name: flextesa
     image: oxheadalpha/flextesa:20220321
     ports:
-      - "20000:20000"
+      - '20000:20000'
     volumes:
       - 'flextesa_data:/tmp'
     command: hangzbox start --keep-root --add-bootstrap-account "${TZ_KEY}@2_000_000_000_000" --no-daemons-for=forge
@@ -114,7 +114,7 @@ services:
     image: polinux/mkdocs:1.1.2
     restart: always
     ports:
-      - "8000:8000"
+      - '8000:8000'
     environment:
       LIVE_RELOAD_SUPPORT: 'true'
       UPDATE_INTERVAL: 15
