@@ -43,6 +43,7 @@ Keep that address, it represents your new Bond.
 <div class="froBorder" >
     <div class="explorer" id="froCreateBond"></div>
 </div>
+<script src="./../../../js/bondEmission.js" type="application/javascript"></script>
 <script>
 const froEndPoint = 'http://localhost:6661/graphql';
 const froSubEndPoint = 'ws://localhost:6661/graphql';
@@ -53,10 +54,8 @@ fetcher: GraphiQL.createFetcher({
   url: froEndPoint,
 }),
 defaultEditorToolsVisibility: true,
-query: `mutation CreateBond($bond: CreateBondInput!) {
-    createBond(bond: $bond)
-}`,
-variables: '{ "bond": { "symbol": "202203031112", "status": "CREATED", "isinCode": "202203031112", "cfiCode": "202203031112", "commonCode": "202203031112", "ledger": "ETHEREUM", "startDate": "2022-03-03T10:11:18.729", "maturityDate": "2026-03-03T10:11:18.729", "denomination": 1000000, "nominalAmount": 1000000000, "decimals": null, "currency": "EUR", "couponRateInBips": 0, "couponFrequencyInMonths": 12, "firstCouponDate": "2023-04-03T09:11:18.729", "isCallable": false, "callFrequency": "DAILY", "registrarAgentAddress": "MY_FRO_ADDRESS", "settlerAgentAddress": "MY_FSO_ADDRESS", "issuerAddress": "0x23041c3e04a6770df70616608b6b1517735f7fc2", "extendedMaturityDate": "2026-04-03T10:11:18.729", "isSoftBullet": false, "softBulletPeriodInMonths": 12, "spread": 0, "issuerId": "LEI_ISSUER_1", "registrarId": "LEI_REGISTRAR", "settlementAgentId": "LEI_SETTLEMENT_AGENT" } }',
+query: createBondMutation,
+variables: createBondMutationVariables,
 }),
 document.getElementById('froCreateBond'),
 );

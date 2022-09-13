@@ -1,5 +1,9 @@
 # Settlement
 
+Now that the subscription has been made on the blockchain, we need to settle the transaction.
+In order to settle the cash we need a trusted third party called the "Settler".
+To fulfill its role, the settler uses the <span class='fsoColor'>FSO</span>.
+
 The required ID should be the 'id' from the "lightSettlementTransactions" array that can be found in the `SubscriptionInitiated` notification of the Contract Notification Subscription.
 
 <div class="fsoBorder" >

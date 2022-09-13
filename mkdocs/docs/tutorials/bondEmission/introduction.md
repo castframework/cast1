@@ -35,27 +35,3 @@ To fulfill its role, the settler uses the <span class='fsoColor'>FSO</span>.
 
 In this tutorial we will be using the `INDIRECT` settlement workflow.
 In this specific workflow, the settler acts as an escrow.
-
-### Confirm the Settler has received the payment
-
-Take the `paymentReference` from the first movement.
-This will update the status of the settlement transaction to `PROCESSED`.
-
-Once the mutation is executed, you should receive a `ConfirmPaymentReceived` notification in the [Contract Notification Subscription](#contracts-notification) !
-
-<div class="fsoBorder" >
-    <div class="explorer" id="fsoConfirmPaymentReceived"></div>
-</div>
-
-### Confirming the Payment has been Transferred to the Issuer
-
-Take the `paymentReference` from the second movement.
-This will update the status of the settlement transaction to `SETTLED`.
-
-Once the mutation is executed, you should receive a `ConfirmPaymentTransferred` notification in the [Contract Notification Subscription](#contracts-notification) !
-
-<div class="fsoBorder" >
-    <div class="explorer" id="fsoConfirmPaymentTransferred"></div>
-</div>
-
-**Congratulations** You have just issued and subscribed to a Forge Bond !
