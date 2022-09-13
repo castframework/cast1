@@ -14,6 +14,19 @@ The result shows the `movements`, which are the payments made between the buyer,
 Keep in mind that the buyer sends <ins>cash</ins> to the escrow, but a <ins>token</ins> to the seller.
 The escrow then sends the buyer's cash to the seller. The status of the settlement transaction becomes `ACKNOWLEDGED`.
 
+<script src="./../../../js/bondEmission.js" type="application/javascript"></script>
 <script>
+const fsoEndPoint = 'http://localhost:6663/graphql';
 
+ReactDOM.render(
+React.createElement(GraphiQL, {
+fetcher: GraphiQL.createFetcher({
+  url: fsoEndPoint,
+}),
+defaultEditorToolsVisibility: true,
+query: getSettlementTransactionQuery,
+variables: '{ "getSettlementTransactionId": "MY_SETTLEMENT_TRANSACTION_ID" }',
+}),
+document.getElementById('fsoGetSettlementTransaction'),
+);
 </script>

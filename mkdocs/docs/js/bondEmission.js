@@ -79,3 +79,11 @@ const createBondMutationVariables = `{
     "settlementAgentId": "LEI_SETTLEMENT_AGENT"
   }
 }`;
+const getSettlementTransactionQuery = `query GetSettlementTransaction($getSettlementTransactionId: String!) {
+  getSettlementTransaction(id: $getSettlementTransactionId) {
+    settlementStatus
+    movements {
+      paymentReference
+    }
+  }
+}`;
