@@ -57,6 +57,7 @@ async function dothestuff(): Promise<void> {
           context[params.registry],
           context[params.target],
           networkConfig,
+          params.instrumentType
         );
         break;
 

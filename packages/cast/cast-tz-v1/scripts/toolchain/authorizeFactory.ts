@@ -9,6 +9,7 @@ export async function authorizeFactory(
   instrumentRegistryAddress: TezosAddress,
   factoryAddress: TezosAddress,
   networkConfig: NetworkConfig,
+  instrumentType: string
 ): Promise<void> {
   try {
     smpLog.info(
@@ -31,7 +32,7 @@ export async function authorizeFactory(
       });
     }
     const op = await instrumentRegistry.methods
-      .authorizeFactory('EMTN', factoryAddress)
+      .authorizeFactory(instrumentType, factoryAddress)
       .send();
 
     await op

@@ -102,7 +102,7 @@ export class FroService {
     );
 
     if (!factoryAddress) {
-      throw new Error(`No factory address found for ledger ${factoryAddress}`);
+      throw new Error(`No bond factory address found for ledger ${bond.ledger}`);
     }
 
     const factoryContract = await this.blockchainService.getForgeBondFactory(

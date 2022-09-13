@@ -1,10 +1,10 @@
 {
- "BasicTokenLibrary": "0x0c585044111E23c814fB538599bF882b80Cc1558",
- "ForgeBondFactory": "0xD679bBD9A041201d02a1B36AC40e3CD078f510ac",
- "ForgeInstrumentRegistry": "0xF72C381951d913bb97B3de6f783a1Cf361B015C6",
- "IterableBalances": "0xC539c41A59c088bbE5CD5638CAb359AfC078ae6d",
- "OperatorManagerLibrary": "0x1FD7461d163680e8B9ad46Fe84A0b19547DE6338",
- "SecurityTokenBalancesLibrary": "0xD03d88F26D1340309907BDBE8CB0Aa1E658Bd1F6",
- "SettlementRepositoryLibrary": "0xbcefCcd14EcE89Ad7BB9B3F167fA394426e1fF05",
- "SettlementWorkflowLibrary": "0xF877083f5309e2118CFea07dD2C4Eb49f500Ea7e"
+ "BasicTokenLibrary": "0xa7D6CF3a8c73c2c6FD3Ec4Ffe541d855Fa06E046",
+ "ForgeBondFactory": "0xbE2f2CEe0a6340b27c6AD95A7FD856ED640ac47E",
+ "ForgeInstrumentRegistry": "0x771d4652E1215911ac8134a7cF5db56f137675F0",
+ "IterableBalances": "0xF878693C599b564320679a58671b660095EBdd93",
+ "OperatorManagerLibrary": "0x16853CbeCdc742a2C88F83B6b9bC9076e625F4bE",
+ "SecurityTokenBalancesLibrary": "0xB94D5033e3A08Ac41f16b234B9E480aEe44f65CA",
+ "SettlementRepositoryLibrary": "0xBBc1a078379B7e8e710c9717C655717D2664899d",
+ "SettlementWorkflowLibrary": "0x52680DFaBC7392d35e81dF004Fd94B36A61644d8"
 }
