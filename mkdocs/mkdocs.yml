@@ -4,8 +4,8 @@ nav:
   - Tutorials:
     - Bond Emission: tutorials/bondEmission/introduction.md
   - Modules:
-    - modules/explorerFRO.md
-    - modules/explorerFSO.md
+    - modules/fro/introduction.md
+    - modules/fso/introduction.md
   - Glossary: glossary.md
 theme:
   name: mkdocs

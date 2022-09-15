@@ -4,7 +4,7 @@ This step by step guide will go through the bond emission process.
 At the end of this tutorial you will have issued and settled a new Forge Bond on
 your local environnement.
 
-For this you need to interact with two components : the <span class="froColor">[Financial Registrar Oracle (FRO)](/modules/explorerFRO)</span> and the <span class="fsoColor">[Financial Settlement Oracle (FSO)](/modules/explorerFSO)</span>.
+For this you need to interact with two components : the <span class="froColor">[Financial Registrar Oracle (FRO)](/modules/fro/introduction)</span> and the <span class="fsoColor">[Financial Settlement Oracle (FSO)](/modules/fso/introduction)</span>.
 
 You will find, along these steps, interactive explorers preloaded with sample requests.
 If you wish, standalone playgrounds for the <span class="froColor">[FRO](http://localhost:6661/graphql)</span> and <span class="fsoColor">[FSO](http://localhost:6663/graphql)</span> are also available.

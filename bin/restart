@@ -6,7 +6,7 @@ set -o pipefail
 PRJT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P | grep -o '^.*/' )"
 
 # Remove all services but blockchains
-${CONTAINER_COMPOSE_CMD:-docker-compose} rm -s -f postgres-api postgres-str api fro fio1 fso mfmo str mfbo1 www mcpu hasura
+${CONTAINER_COMPOSE_CMD:-docker-compose} rm -s -f fro fio1 fso str
 
 # Start all services
 ${CONTAINER_COMPOSE_CMD:-docker-compose} up -d
