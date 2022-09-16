@@ -1,11 +1,11 @@
 site_name: Cast v1
 nav:
   - Home: index.md
-  - Tutorials :
-    - Bond Emission: tutorials/bondEmission.md
+  - Tutorials:
+    - Bond Emission: tutorials/bondEmission/introduction.md
   - Modules:
-    - modules/explorerFRO.md
-    - modules/explorerFSO.md
+    - modules/fro/introduction.md
+    - modules/fso/introduction.md
   - Glossary: glossary.md
 theme:
   name: mkdocs

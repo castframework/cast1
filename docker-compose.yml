@@ -15,8 +15,6 @@ services:
       - POSTGRES_DB=oracle
     ports:
       - '5434:5432'
-    volumes:
-      - './charts/forge-platform/init-data/defaults/default-str-postgres-init.sql:/docker-entrypoint-initdb.d/init.sql'
   fro:
     container_name: fro
     image: 'node:16.9.1-alpine3.14'
